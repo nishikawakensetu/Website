@@ -56,21 +56,22 @@
         <span>Contact Form</span>
       </h3>
       <p>ご質問やご相談がありましたら、以下のフォームからお気軽にお問い合わせください。</p>
-      <form action="confirm.html" method="GET" id="contactForm">
+      <form id="contactForm" action="https://formspree.io/f/your-form-id" method="POST">
         <label for="name">お名前</label>
         <input type="text" id="name" name="name" required>
-
+      
         <label for="email">メールアドレス</label>
-        <input type="email" id="email" name="email" required>
-
+        <input type="email" id="email" name="_replyto" required>
+      
         <label for="phone">電話番号</label>
         <input type="tel" id="phone" name="phone" placeholder="例: 090-1234-5678" required>
-
+      
         <label for="message">お問い合わせ内容</label>
         <textarea id="message" name="message" rows="4" required></textarea>
-
+      
         <button type="submit" class="cta-button">確認画面へ</button>
       </form>
+      
     </div>
   </section>
 
@@ -96,7 +97,7 @@
         </span>
       </div>
       <div id="contactWeb">
-        <img class="mailimg" src="https://raw.githubusercontent.com/nishikawakensetu/ConstructionExample/refs/heads/main/%E3%82%B7%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AA%E3%83%A1%E3%83%BC%E3%83%AB%E3%81%AE%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3%E7%B4%A0%E6%9D%90%202.png">
+        <img class="mailimg" src="https://raw.githubusercontent.com/nishikawakensetu/ConstructionExample/refs/heads/main/%E3%82%B7%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AA%E3%83%A1%E3%83%BC%E3%83%AB%E3%81%AE%E3%82%A2%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3%E7%B4%A0%E6%9D%90%202.png">
         <p class="tcenter b-m5 color01 bold">お問い合わせフォームはこちら</p>
         <p class="btn01">
           <a href="contact.html">
@@ -110,7 +111,7 @@
   <div class="page_top">
     <a href="#top">PAGE TOP</a>
   </div>
-  
+
   <style>
     .page_top {
       clear: both;
@@ -133,34 +134,27 @@
       background-size: 13px;
     }
   </style>
-  
-  <script>
-    // ページトップリンクにスムーススクロールを追加
-    document.querySelector('.page_top a').addEventListener('click', function (e) {
-      e.preventDefault(); // デフォルトの動作を無効化
-      window.scrollTo({
-        top: 0, // ページトップの位置
-        behavior: 'smooth' // スムーズスクロール
-      });
-    });
-  </script>
+
 
   <!-- フッター -->
   <footer>
     <p>&copy; 2024 西川建設工業 | All Rights Reserved</p>
   </footer>
 
-  <!-- JavaScript -->
   <script>
-    document.getElementById("contactForm").addEventListener("submit", function(event) {
-      const phoneInput = document.getElementById("phone").value.trim();
-      const phonePattern = /^0\d{1,4}-\d{1,4}-\d{4}$/; // 日本の一般的な電話番号形式
+    document.getElementById('contactForm').onsubmit = function(event) {
+      event.preventDefault(); // フォーム送信を防ぐ
 
-      if (!phonePattern.test(phoneInput)) {
-        event.preventDefault(); // フォーム送信を防ぐ
-        alert("正しい電話番号を入力してください。例: 03-1234-5678 または 090-1234-5678");
-      }
-    });
+      // フォームのデータを取得
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const message = document.getElementById('message').value;
+
+      // クエリパラメータとして確認画面に遷移
+      const url = `confirm.html?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&message=${encodeURIComponent(message)}`;
+      window.location.href = url; // confirm.htmlに遷移
+    };
   </script>
 </body>
 </html>
