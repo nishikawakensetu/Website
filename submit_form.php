@@ -1,35 +1,31 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // 入力値の取得とサニタイズ
-    $name = htmlspecialchars($_POST["name"], ENT_QUOTES, 'UTF-8');
-    $email = htmlspecialchars($_POST["email"], ENT_QUOTES, 'UTF-8');
-    $phone = htmlspecialchars($_POST["phone"], ENT_QUOTES, 'UTF-8');
-    $message = htmlspecialchars($_POST["message"], ENT_QUOTES, 'UTF-8');
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // フォームからのデータを取得
+    $name = htmlspecialchars($_POST['name']);
+    $email = htmlspecialchars($_POST['email']);
+    $phone = htmlspecialchars($_POST['phone']);
+    $message = htmlspecialchars($_POST['message']);
 
-    // メール送信設定
-    $to = "nisikawa3580@blue.ocn.ne.jp"; // 管理者のメールアドレス
-    $subject = "お問い合わせがありました";
-    $body = "以下の内容でお問い合わせがありました:\n\n" .
-            "お名前: $name\n" .
-            "メールアドレス: $email\n" .
-            "電話番号: $phone\n" .
-            "お問い合わせ内容:\n$message\n";
+    // メールの設定
+    $to = "nisikawa3580@blue.ocn.ne.jp";  // 送信先のメールアドレス
+    $subject = "お問い合わせ内容: $name 様";
+    $body = "以下の内容でお問い合わせがありました。\n\n".
+            "お名前: $name\n".
+            "メールアドレス: $email\n".
+            "電話番号: $phone\n".
+            "お問い合わせ内容:\n$message";
 
-    $headers = "From: $email\r\n";
+    $headers = "From: $email";
 
-    // メール送信処理
+    // メール送信
     if (mail($to, $subject, $body, $headers)) {
-        // 成功時: thank_you.html にリダイレクト
+        // 送信成功時、thank_you.html にリダイレクト
         header("Location: thank_you.html");
-        exit();
+        exit;
     } else {
-        // 失敗時: error.html にリダイレクト
+        // 送信失敗時、error.html にリダイレクト
         header("Location: error.html");
-        exit();
+        exit;
     }
-} else {
-    // 不正なリクエストへの対応: error.html にリダイレクト
-    header("Location: error.html");
-    exit();
 }
 ?>
