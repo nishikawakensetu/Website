@@ -148,8 +148,129 @@ footer {
 }
 
 /* ヘッダー */
+/* 会社情報 */
+.page_title_about{
+  background: url(https://raw.githubusercontent.com/nishikawakensetu/Website/refs/heads/main/images/slide1.JPG) no-repeat center;
+  height: 300px;
+  background-position: center -800px;
+  background-size: cover;
+  padding: 10px 0;
+}
+
+.page_title_about h2{
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.5;
+  letter-spacing: .3rem;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+  margin: 88px;
+}
+
+.page_title_about h2 span{
+  font-size: 2rem;
+}
+
+/* 施工事例 */
+.page_title_construction{
+  background: url(https://raw.githubusercontent.com/nishikawakensetu/Website/refs/heads/main/images/inotanigawa%20higasiketa%20yougohekigogan/sekougo1.JPG) no-repeat center;
+  height: 300px;
+  background-position: center -580px;
+  background-size: cover;
+  padding: 10px 0;
+}
+
+.page_title_construction h2{
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.5;
+  letter-spacing: .3rem;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+  margin: 88px;
+}
+
+.page_title_construction h2 span{
+  font-size: 2rem;
+}
+
+/* 採用情報 */
+.page_title_recruit{
+  background: url(https://raw.githubusercontent.com/nishikawakensetu/Website/refs/heads/main/images/recruit.jpg) no-repeat center;
+  height: 300px;
+  background-position: center -600px;
+  background-size: cover;
+  padding: 10px 0;
+}
+
+.page_title_recruit h2{
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.5;
+  letter-spacing: .3rem;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+  margin: 88px;
+}
+
+.page_title_recruit h2 span{
+  font-size: 2rem;
+}
+
+/* お問い合わせ */
+.page_title_contact{
+  background: url(https://raw.githubusercontent.com/nishikawakensetu/Website/refs/heads/main/images/pcphone.jpg) no-repeat center;
+  height: 300px;
+  background-position: center -400px;
+  background-size: cover;
+  padding: 10px 0;
+}
+
+.page_title_contact h2{
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.5;
+  letter-spacing: .3rem;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+  margin: 88px;
+}
+
+.page_title_contact h2 span{
+  font-size: 2rem;
+}
+
+/* 環境 */
+.page_title_sbt{
+  background: url(https://raw.githubusercontent.com/nishikawakensetu/Website/refs/heads/main/images/slide1.JPG) no-repeat center;
+  height: 300px;
+  background-position: center -800px;
+  background-size: cover;
+  padding: 10px 0;
+}
+
+.page_title_sbt h2{
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.5;
+  letter-spacing: .3rem;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+  margin: 88px;
+}
+
+.page_title_sbt h2 span{
+  font-size: 2rem;
+}
+
+
+
 .page_title{
-  background: url(https://raw.githubusercontent.com/nishikawakensetu/titlebox1/refs/heads/main/about-header.jpg) no-repeat center;
   background-size: cover;
   padding: 10px 0;
 }
@@ -477,7 +598,6 @@ footer {
   padding: 20px;
   padding-top: 60px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   height: 100%;
 }
 
@@ -519,7 +639,6 @@ ul.gallery .arrow {
 }
 
 .gallery li a {
-  display: block;
   text-align: center;
   padding: 0px;
   height: 230px;
@@ -531,7 +650,7 @@ ul.gallery .arrow {
 
 /* クリック時に画像を拡大 */
 .gallery li a img {
-  height: 230px;
+  height: 250px;
   object-fit: cover;
   cursor: pointer;
   transition: transform 0.3s ease-in-out, filter 0.3s ease;
@@ -592,9 +711,8 @@ ul.gallery .arrow {
 
 .sbt-content{
   background-color: white;
-  padding: 60px 20px;
+  padding: 60px 20px 0px 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .sbt-content .container{
@@ -627,7 +745,6 @@ ul.gallery .arrow {
   background-color: white;
   padding: 60px 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .sbt-Certification .container{
@@ -654,7 +771,7 @@ ul.gallery .arrow {
 .img-frame{
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 700px;
   overflow: hidden;
   margin: 0 auto;
 }
@@ -677,17 +794,19 @@ ul.gallery .arrow {
 }
 
 .img-01{
-  background-image: url('https://raw.githubusercontent.com/nishikawakensetu/ConstructionExample/refs/heads/main/home-slide1.JPG');
+  background-image: url('https://raw.githubusercontent.com/nishikawakensetu/Website/refs/heads/main/images/slide1.JPG');
+  background-position: center -600px;
   animation: slide-animation-01 24s infinite;
 }
 
 .img-02{
-  background-image: url('https://raw.githubusercontent.com/nishikawakensetu/ConstructionExample/refs/heads/main/home-slide2.JPG');
+  background-image: url('https://raw.githubusercontent.com/nishikawakensetu/Website/refs/heads/main/images/kajiyasikihakunaisenn/sekougo.JPG');
   animation: slide-animation-02 24s infinite;
 }
 
 .img-03{
-  background-image: url('https://raw.githubusercontent.com/nishikawakensetu/ConstructionExample/refs/heads/main/home-slide1.JPG');
+  background-image: url('https://raw.githubusercontent.com/nishikawakensetu/Website/refs/heads/main/images/eguchiokumurasen/sekougo2.JPG');
+  background-position: center -200px;
   animation: slide-animation-03 24s infinite;
 }
 
@@ -801,7 +920,7 @@ ul.gallery .arrow {
 }
 
 .envimg{
-  width: 550px;
+  width: 800px;
 }
 
 .env .view-more{
@@ -1121,3 +1240,9 @@ ul.gallery .arrow {
   padding-left: 135px;
 }
 
+canvas {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+  height: auto;
+}
