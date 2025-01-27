@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>確認画面 | 西川建設工業</title>
+  <title>お問い合わせ | 西川建設工業</title>
   <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Yomogi&display=swap" rel="stylesheet">
   <script>
     // URLパラメータからフォームデータを取得して表示
     window.onload = function() {
@@ -20,7 +21,18 @@
   <!-- ヘッダー -->
   <header>
     <div class="container">
-      <h1>有限会社西川建設工業</h1>
+      <div id="menu_box">
+        <h1 id="CompanyName"><a href="index.html" style="text-decoration: none; color: black;">有限会社西川建設工業</a></h1>
+        <nav class="menuran">
+          <ul id="menu" class="clearfix">
+            <li><a href="index.html">ホーム</a></li>
+            <li><a href="about.html">会社案内</a></li>
+            <li><a href="Construction.html">施工事例</a></li>
+            <li><a href="recruit.html">採用情報</a></li>
+            <li><a href="contact.html">お問い合わせ</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </header>
 
@@ -41,7 +53,6 @@
     </div>
   </section>
 
-  <!-- 確認画面セクション -->
   <section class="contact-content">
     <div class="container">
       <h3>お問い合わせ内容の確認</h3>
@@ -66,7 +77,7 @@
     </div>
   </section>
 
-  <style>
+<style>
     /* 確認画面のスタイル */
     .contact-content {
       margin-top: 20px;
