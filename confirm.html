@@ -14,7 +14,43 @@
       document.getElementById('confirm-email').innerText = urlParams.get('email');
       document.getElementById('confirm-phone').innerText = urlParams.get('phone');
       document.getElementById('confirm-message').innerText = urlParams.get('message');
+
+      // 隠しフィールドにも設定
+      document.getElementById('confirm-name-input').value = urlParams.get('name');
+      document.getElementById('confirm-email-input').value = urlParams.get('email');
+      document.getElementById('confirm-phone-input').value = urlParams.get('phone');
+      document.getElementById('confirm-message-input').value = urlParams.get('message');
     };
+
+    async function handleSubmit(event) {
+      event.preventDefault(); // デフォルトのフォーム送信を防ぐ
+
+      const formData = {
+        name: document.getElementById('confirm-name-input').value,
+        email: document.getElementById('confirm-email-input').value,
+        phone: document.getElementById('confirm-phone-input').value,
+        message: document.getElementById('confirm-message-input').value
+      };
+
+      try {
+        const response = await fetch("https://formspree.io/f/xwpvvjkq", { // FormspreeのURL
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+
+        if (response.ok) {
+          // 成功時
+          window.location.href = "thank_you.html";
+        } else {
+          // 失敗時
+          window.location.href = "error.html";
+        }
+      } catch (error) {
+        // ネットワークエラーなどの場合
+        window.location.href = "error.html";
+      }
+    }
   </script>
 </head>
 <body>
@@ -58,7 +94,7 @@
       <h3>お問い合わせ内容の確認</h3>
       <p>以下の内容でお問い合わせいただきます。問題がなければ「送信する」ボタンを押してください。</p>
 
-      <form action="https://formspree.io/f/xwpvvjkq" method="POST">
+      <form id="contactForm" onsubmit="handleSubmit(event)">
         <label for="name">お名前</label>
         <p id="confirm-name"></p>
 
@@ -107,19 +143,5 @@
   <footer>
     <p>&copy; 2024 西川建設工業 | All Rights Reserved</p>
   </footer>
-
-  <script>
-    // contact.htmlからデータを取得してconfirm画面に表示
-    document.getElementById('confirm-name').textContent = localStorage.getItem('name');
-    document.getElementById('confirm-email').textContent = localStorage.getItem('email');
-    document.getElementById('confirm-phone').textContent = localStorage.getItem('phone');
-    document.getElementById('confirm-message').textContent = localStorage.getItem('message');
-
-    // 隠しフィールドにも設定
-    document.getElementById('confirm-name-input').value = localStorage.getItem('name');
-    document.getElementById('confirm-email-input').value = localStorage.getItem('email');
-    document.getElementById('confirm-phone-input').value = localStorage.getItem('phone');
-    document.getElementById('confirm-message-input').value = localStorage.getItem('message');
-  </script>
 </body>
 </html>
