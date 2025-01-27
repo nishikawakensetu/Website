@@ -43,12 +43,12 @@
         <p><strong>お問い合わせ内容:</strong> <span id="confirm-message"></span></p>
       </div>
 
-      <form action="https://formspree.io/f/xwpvvjkq" method="POST">
+      <form id="contact-form" action="https://formspree.io/f/xwpvvjkq" method="POST">
         <input type="hidden" name="name" id="confirm-name-input">
         <input type="hidden" name="_replyto" id="confirm-email-input">
         <input type="hidden" name="phone" id="confirm-phone-input">
         <input type="hidden" name="message" id="confirm-message-input">
-        <button type="submit" class="cta-button" style="font-weight: 600; letter-spacing: 0.5px; line-height: 1.8;">送信する</button>
+        <button type="submit" class="cta-button">送信する</button>
       </form>
       <a href="contact.html" class="cta-button">修正する</a>
     </div>
@@ -80,7 +80,30 @@
       document.getElementById('confirm-phone-input').value = phone;
       document.getElementById('confirm-message-input').value = message;
     };
+
+    // フォーム送信時の処理
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault();  // フォーム送信のデフォルト動作を停止
+
+      // Formspreeにデータを送信
+      fetch('https://formspree.io/f/xwpvvjkq', {
+        method: 'POST',
+        body: new FormData(this),
+      })
+      .then(response => {
+        if (response.ok) {
+          // 送信成功時にthank_you.htmlに遷移
+          window.location.href = 'thank_you.html';
+        } else {
+          // 送信失敗時にerror.htmlに遷移
+          window.location.href = 'error.html';
+        }
+      })
+      .catch(() => {
+        // 送信失敗時にerror.htmlに遷移
+        window.location.href = 'error.html';
+      });
+    });
   </script>
-  
 </body>
 </html>
