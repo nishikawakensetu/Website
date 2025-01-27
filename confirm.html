@@ -14,12 +14,6 @@
       document.getElementById('confirm-email').innerText = urlParams.get('email');
       document.getElementById('confirm-phone').innerText = urlParams.get('phone');
       document.getElementById('confirm-message').innerText = urlParams.get('message');
-
-      // 隠しフィールドに値を設定
-      document.getElementById('confirm-name-input').value = urlParams.get('name');
-      document.getElementById('confirm-email-input').value = urlParams.get('email');
-      document.getElementById('confirm-phone-input').value = urlParams.get('phone');
-      document.getElementById('confirm-message-input').value = urlParams.get('message');
     };
   </script>
 </head>
@@ -45,8 +39,7 @@
   <!-- 確認画面セクション -->
   <section>
     <div class="page_title_contact">
-      <h2>確認画面<br>
-      <span>Confirm</span></h2>
+      <h2>確認画面</h2>
     </div>
   </section>
 
@@ -78,7 +71,7 @@
         <label for="message">お問い合わせ内容</label>
         <p id="confirm-message"></p>
 
-        <!-- 隠しフィールドとしてフォームに値を送信 -->
+        <!-- 隠しフィールドに確認内容をセット -->
         <input type="hidden" name="name" id="confirm-name-input">
         <input type="hidden" name="_replyto" id="confirm-email-input">
         <input type="hidden" name="phone" id="confirm-phone-input">
@@ -115,5 +108,18 @@
     <p>&copy; 2024 西川建設工業 | All Rights Reserved</p>
   </footer>
 
+  <script>
+    // contact.htmlからデータを取得してconfirm画面に表示
+    document.getElementById('confirm-name').textContent = localStorage.getItem('name');
+    document.getElementById('confirm-email').textContent = localStorage.getItem('email');
+    document.getElementById('confirm-phone').textContent = localStorage.getItem('phone');
+    document.getElementById('confirm-message').textContent = localStorage.getItem('message');
+
+    // 隠しフィールドにも設定
+    document.getElementById('confirm-name-input').value = localStorage.getItem('name');
+    document.getElementById('confirm-email-input').value = localStorage.getItem('email');
+    document.getElementById('confirm-phone-input').value = localStorage.getItem('phone');
+    document.getElementById('confirm-message-input').value = localStorage.getItem('message');
+  </script>
 </body>
 </html>
