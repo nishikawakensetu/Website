@@ -35,25 +35,23 @@
   </section>    
 
   <section class="confirmation-details">
-      <div>
+    <div>
       <p>以下の内容でよろしければ、送信ボタンをクリックしてください。</p>
-        <p><strong>お名前:</strong> <span id="confirm-name"></span></p>
-        <p><strong>メールアドレス:</strong> <span id="confirm-email"></span></p>
-        <p><strong>電話番号:</strong> <span id="confirm-phone"></span></p>
-        <p><strong>お問い合わせ内容:</strong> <span id="confirm-message"></span></p>
-      </div>
-
-      <form id="contact-form" action="https://formspree.io/f/xwpvvjkq" method="POST">
-        <input type="hidden" name="name" id="confirm-name-input">
-        <input type="hidden" name="_replyto" id="confirm-email-input">
-        <input type="hidden" name="phone" id="confirm-phone-input">
-        <input type="hidden" name="message" id="confirm-message-input">
-        <button type="submit" class="cta-button">送信する</button>
-      </form>
-      <a href="contact.html" class="cta-button">修正する</a>
+      <p><strong>お名前:</strong> <span id="confirm-name"></span></p>
+      <p><strong>メールアドレス:</strong> <span id="confirm-email"></span></p>
+      <p><strong>電話番号:</strong> <span id="confirm-phone"></span></p>
+      <p><strong>お問い合わせ内容:</strong> <span id="confirm-message"></span></p>
     </div>
+
+    <form id="contact-form" action="https://formspree.io/f/xwpvvjkq" method="POST">
+      <input type="hidden" name="name" id="confirm-name-input">
+      <input type="hidden" name="_replyto" id="confirm-email-input">
+      <input type="hidden" name="phone" id="confirm-phone-input">
+      <input type="hidden" name="message" id="confirm-message-input">
+      <button type="submit" class="cta-button">送信する</button>
+    </form>
+    <a href="contact.html" class="cta-button">修正する</a>
   </section>
-  
 
   <footer>
     <p>&copy; 2024 西川建設工業 | All Rights Reserved</p>
@@ -67,13 +65,13 @@
       const email = urlParams.get('email') || '';
       const phone = urlParams.get('phone') || '';
       const message = urlParams.get('message') || '';
-  
+
       // 表示する
       document.getElementById('confirm-name').textContent = name;
       document.getElementById('confirm-email').textContent = email;
       document.getElementById('confirm-phone').textContent = phone;
       document.getElementById('confirm-message').textContent = message;
-  
+
       // 隠しフィールドにデータを設定
       document.getElementById('confirm-name-input').value = name;
       document.getElementById('confirm-email-input').value = email;
@@ -84,6 +82,12 @@
     // フォーム送信時の処理
     document.getElementById('contact-form').addEventListener('submit', function(event) {
       event.preventDefault();  // フォーム送信のデフォルト動作を停止
+
+      // デバッグ用ログ
+      console.log('Name:', document.getElementById('confirm-name-input').value);
+      console.log('Email:', document.getElementById('confirm-email-input').value);
+      console.log('Phone:', document.getElementById('confirm-phone-input').value);
+      console.log('Message:', document.getElementById('confirm-message-input').value);
 
       // Formspreeにデータを送信
       fetch('https://formspree.io/f/xwpvvjkq', {
@@ -96,10 +100,12 @@
           window.location.href = 'thank_you.html';
         } else {
           // 送信失敗時にerror.htmlに遷移
+          console.error('Formspree Error:', response);
           window.location.href = 'error.html';
         }
       })
-      .catch(() => {
+      .catch(error => {
+        console.error('Network Error:', error);
         // 送信失敗時にerror.htmlに遷移
         window.location.href = 'error.html';
       });
