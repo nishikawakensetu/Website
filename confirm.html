@@ -65,13 +65,13 @@
       const email = urlParams.get('email') || '';
       const phone = urlParams.get('phone') || '';
       const message = urlParams.get('message') || '';
-
+  
       // 表示する
       document.getElementById('confirm-name').textContent = name;
       document.getElementById('confirm-email').textContent = email;
       document.getElementById('confirm-phone').textContent = phone;
       document.getElementById('confirm-message').textContent = message;
-
+  
       // 隠しフィールドにデータを設定
       document.getElementById('confirm-name-input').value = name;
       document.getElementById('confirm-email-input').value = email;
@@ -82,12 +82,6 @@
     // フォーム送信時の処理
     document.getElementById('contact-form').addEventListener('submit', function(event) {
       event.preventDefault();  // フォーム送信のデフォルト動作を停止
-
-      // デバッグ用ログ
-      console.log('Name:', document.getElementById('confirm-name-input').value);
-      console.log('Email:', document.getElementById('confirm-email-input').value);
-      console.log('Phone:', document.getElementById('confirm-phone-input').value);
-      console.log('Message:', document.getElementById('confirm-message-input').value);
 
       // Formspreeにデータを送信
       fetch('https://formspree.io/f/xwpvvjkq', {
@@ -100,12 +94,10 @@
           window.location.href = 'thank_you.html';
         } else {
           // 送信失敗時にerror.htmlに遷移
-          console.error('Formspree Error:', response);
           window.location.href = 'error.html';
         }
       })
-      .catch(error => {
-        console.error('Network Error:', error);
+      .catch(() => {
         // 送信失敗時にerror.htmlに遷移
         window.location.href = 'error.html';
       });
