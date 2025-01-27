@@ -141,19 +141,21 @@
   </footer>
 
   <script>
+    // フォーム送信前に確認画面へ遷移
     document.getElementById('contactForm').onsubmit = function(event) {
       event.preventDefault(); // フォーム送信を防ぐ
-
+  
       // フォームのデータを取得
       const name = document.getElementById('name').value;
       const email = document.getElementById('email').value;
       const phone = document.getElementById('phone').value;
       const message = document.getElementById('message').value;
-
+  
       // クエリパラメータとして確認画面に遷移
       const url = `confirm.html?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&message=${encodeURIComponent(message)}`;
       window.location.href = url; // confirm.htmlに遷移
     };
   </script>
+  
 </body>
 </html>
