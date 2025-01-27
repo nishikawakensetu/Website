@@ -89,17 +89,22 @@
         body: new FormData(this),
       })
       .then(response => {
+        console.log('レスポンスステータス:', response.status);
+        console.log('レスポンスOK?:', response.ok);
         if (response.ok) {
-          // 送信成功時にthank_you.htmlに遷移
-          window.location.href = 'thank_you.html';
+          console.log('成功: thank_you.html に遷移します');
+          window.location.href = 'thank_you.html'; // 成功時に遷移
         } else {
-          // 送信失敗時にerror.htmlに遷移
-          window.location.href = 'error.html';
+          // エラー詳細を確認
+          response.text().then(text => {
+            console.log('エラーレスポンス本文:', text); // サーバーから返されたエラーメッセージ
+          });
+          window.location.href = 'error.html'; // エラー時に遷移
         }
       })
-      .catch(() => {
-        // 送信失敗時にerror.htmlに遷移
-        window.location.href = 'error.html';
+      .catch(error => {
+        console.error('ネットワークエラー:', error); // ネットワークエラーや通信エラー
+        window.location.href = 'error.html'; // エラー時に遷移
       });
     });
   </script>
