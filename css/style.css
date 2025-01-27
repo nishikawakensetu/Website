@@ -1292,3 +1292,61 @@ canvas {
   height: auto;
 }
 
+.confirmation-details {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 25px;
+  margin: 30px auto;
+  width: 80%; /* 画面幅の80% */
+  max-width: 700px; /* 最大幅を設定 */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  text-align: center; /* テキストを中央揃え */
+}
+
+.confirmation-details p {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #333;
+  font-weight: 600;
+}
+
+.confirmation-details p strong {
+  color: var(--primary-color);
+}
+
+.confirmation-details span {
+  display: block;
+  font-size: 16px;
+  color: #666;
+  font-weight: 400;
+}
+
+.confirmation-details a {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 15px 35px;
+  background-color: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.confirmation-details .cta-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.confirmation-details .cta-button:hover {
+  background-color: #357ABD;
+}
