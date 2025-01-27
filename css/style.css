@@ -558,6 +558,51 @@ footer {
   background-color: #357ABD;
 }
 
+/* エラーページ */
+.error {
+  padding: 80px 20px;
+  text-align: center;
+  background-color: var(--background-color);
+}
+
+.error .container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  padding: 40px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.error h2 {
+  font-size: 2.5em;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.error p {
+  font-size: 1.2em;
+  color: var(--secondary-text);
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.error .cta-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  color: white;
+  background-color: var(--primary-color);
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.error .cta-button:hover {
+  background-color: #357ABD;
+}
+
+
 .service-content .container {
   max-width: 1000px;
   margin: 0 auto;
@@ -1246,3 +1291,4 @@ canvas {
   max-width: 100%;
   height: auto;
 }
+
