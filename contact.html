@@ -30,15 +30,29 @@
 
   <script>
     document.getElementById('submit-btn').addEventListener('click', function(event) {
-      // フォームのデータが全て入力されているかチェック
+      // フォームのデータを取得
       var name = document.getElementById('name').value;
       var email = document.getElementById('email').value;
       var phone = document.getElementById('phone').value;
       var message = document.getElementById('message').value;
 
-      // 必須項目が空ならアラート表示
+      // 必須項目が空の場合に警告
       if (!name || !email || !phone || !message) {
         alert("すべての項目を入力してください。");
+        return;
+      }
+
+      // メールアドレス形式のチェック
+      var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!emailPattern.test(email)) {
+        alert("正しいメールアドレス形式で入力してください。");
+        return;
+      }
+
+      // 電話番号形式のチェック
+      var phonePattern = /^\d{2,4}-\d{2,4}-\d{4}$/;
+      if (!phonePattern.test(phone)) {
+        alert("電話番号はXXX-XXXX-XXXXの形式で入力してください。");
         return;
       }
 
