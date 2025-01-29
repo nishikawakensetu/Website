@@ -3,63 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>確認画面</title>
+  <title>お問い合わせフォーム</title>
+  <script>
+    // フロントエンドでのバリデーションを補強
+    function validateForm(event) {
+      const form = document.getElementById('contact-form');
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const phone = form.phone.value.trim();
+      const message = form.message.value.trim();
+
+      const phonePattern = /^\d{3}-\d{4}-\d{4}$|^\d{4}-\d{2}-\d{4}$/;
+      const errors = [];
+
+      if (!name) errors.push("お名前を入力してください。");
+      if (!email) {
+        errors.push("メールアドレスを入力してください。");
+      } else if (!form.email.checkValidity()) {
+        errors.push("正しいメールアドレスを入力してください。");
+      }
+      if (!phone) {
+        errors.push("電話番号を入力してください。");
+      } else if (!phonePattern.test(phone)) {
+        errors.push("電話番号は 080-1234-5678 または 1234-12-1234 の形式で入力してください。");
+      }
+      if (!message) errors.push("お問い合わせ内容を入力してください。");
+
+      if (errors.length > 0) {
+        alert(errors.join("\n"));
+        event.preventDefault();
+      }
+    }
+  </script>
 </head>
 <body>
-  <h1>お問い合わせ内容の確認</h1>
-  <form id="confirm-form" action="https://formspree.io/f/xwpvvjkq" method="post">
-    <p>お名前: <span id="display-name"></span></p>
-    <input type="hidden" name="name" id="name" value="">
+  <h1>お問い合わせ</h1>
+  <form id="contact-form" action="confirm.html" method="get" onsubmit="validateForm(event)">
+    <label for="name">お名前</label>
+    <input type="text" id="name" name="name" required>
 
-    <p>メールアドレス: <span id="display-email"></span></p>
-    <input type="hidden" name="email" id="email" value="">
+    <label for="email">メールアドレス</label>
+    <input type="email" id="email" name="email" required>
 
-    <p>電話番号: <span id="display-phone"></span></p>
-    <input type="hidden" name="phone" id="phone" value="">
+    <label for="phone">電話番号</label>
+    <input type="tel" id="phone" name="phone" pattern="^\d{3}-\d{4}-\d{4}$|^\d{4}-\d{2}-\d{4}$" required>
 
-    <p>お問い合わせ内容:</p>
-    <p><span id="display-message"></span></p>
-    <input type="hidden" name="message" id="message" value="">
+    <label for="message">お問い合わせ内容</label>
+    <textarea id="message" name="message" required></textarea>
 
-    <button type="button" onclick="history.back()">戻る</button>
-    <button type="submit">送信する</button>
+    <button type="submit">確認画面へ進む</button>
   </form>
-
-  <script>
-    // URLパラメータからデータを取得し表示
-    const urlParams = new URLSearchParams(window.location.search);
-    document.getElementById('display-name').textContent = urlParams.get('name');
-    document.getElementById('name').value = urlParams.get('name');
-
-    document.getElementById('display-email').textContent = urlParams.get('email');
-    document.getElementById('email').value = urlParams.get('email');
-
-    document.getElementById('display-phone').textContent = urlParams.get('phone');
-    document.getElementById('phone').value = urlParams.get('phone');
-
-    document.getElementById('display-message').textContent = urlParams.get('message');
-    document.getElementById('message').value = urlParams.get('message');
-
-    // フォーム送信後にthank_you.htmlにリダイレクト
-    document.getElementById('confirm-form').addEventListener('submit', function (event) {
-      event.preventDefault(); // デフォルトの送信を防ぐ
-      const form = event.target;
-
-      fetch(form.action, {
-        method: form.method,
-        body: new FormData(form),
-      })
-      .then((response) => {
-        if (response.ok) {
-          window.location.href = 'thank_you.html'; // 成功時にリダイレクト
-        } else {
-          alert('送信に失敗しました。もう一度お試しください。');
-        }
-      })
-      .catch(() => {
-        alert('エラーが発生しました。');
-      });
-    });
-  </script>
 </body>
 </html>
