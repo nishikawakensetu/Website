@@ -7,17 +7,17 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>確認画面</h1>
-  <p><strong>お名前:</strong> <span id="confirm-name"></span></p>
-  <p><strong>メールアドレス:</strong> <span id="confirm-email"></span></p>
-  <p><strong>電話番号:</strong> <span id="confirm-phone"></span></p>
-  <p><strong>お問い合わせ内容:</strong> <span id="confirm-message"></span></p>
+  <h1>入力内容の確認</h1>
 
-  <form action="https://formspree.io/f/xwpvvjkq" method="POST">
-    <button type="submit">送信</button>
+  <form id="confirm-form" action="https://formspree.io/f/xwpvvjkq" method="POST">
+    <p><strong>お名前:</strong> <span id="confirm-name"></span></p>
+    <p><strong>メールアドレス:</strong> <span id="confirm-email"></span></p>
+    <p><strong>電話番号:</strong> <span id="confirm-phone"></span></p>
+    <p><strong>お問い合わせ内容:</strong> <span id="confirm-message"></span></p>
+
+    <button type="button" id="edit-btn">修正する</button>
+    <button type="submit" id="submit-btn">送信する</button>
   </form>
-  
-  <a href="contact.html">戻る</a>
 
   <script>
     // sessionStorageからデータを取得して表示
@@ -25,6 +25,16 @@
     document.getElementById('confirm-email').textContent = sessionStorage.getItem('email');
     document.getElementById('confirm-phone').textContent = sessionStorage.getItem('phone');
     document.getElementById('confirm-message').textContent = sessionStorage.getItem('message');
+
+    // 修正ボタンでフォームページに戻る
+    document.getElementById('edit-btn').addEventListener('click', function() {
+      window.history.back();
+    });
+
+    // フォーム送信時にsessionStorageをクリア
+    document.getElementById('confirm-form').addEventListener('submit', function() {
+      sessionStorage.clear();
+    });
   </script>
 </body>
 </html>
