@@ -92,12 +92,9 @@
       fetch('https://formspree.io/f/xwpvvjkq', {
         method: 'POST',
         body: formData,
+        redirect: 'manual', // リダイレクトを追跡しない
       })
       .then(response => {
-        console.log('Response Status:', response.status);
-        console.log('Response OK:', response.ok);
-        response.text().then(text => console.log('Response Body:', text));
-
         const messageElement = document.getElementById('response-message');
         if (response.ok) {
           messageElement.style.color = 'green';
