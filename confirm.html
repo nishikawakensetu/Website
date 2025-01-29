@@ -1,48 +1,47 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>確認画面</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; }
-        .container { width: 80%; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #fff; }
-        h1 { text-align: center; }
-        button { background-color: #4CAF50; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; }
-        button:hover { background-color: #45a049; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>確認画面</title>
 </head>
 <body>
+  <h1>内容確認</h1>
+  <form id="confirm-form" action="https://formspree.io/f/xwpvvjkq" method="POST">
+    <p><strong>お名前：</strong><span id="confirm-name"></span></p>
+    <p><strong>メールアドレス：</strong><span id="confirm-email"></span></p>
+    <p><strong>電話番号：</strong><span id="confirm-phone"></span></p>
+    <p><strong>お問い合わせ内容：</strong><span id="confirm-message"></span></p>
 
-    <div class="container">
-        <h1>確認画面</h1>
-        <p>以下の内容で送信しますか？</p>
+    <!-- Hidden inputs to pass data to Formspree -->
+    <input type="hidden" name="name" id="hidden-name">
+    <input type="hidden" name="email" id="hidden-email">
+    <input type="hidden" name="phone" id="hidden-phone">
+    <input type="hidden" name="message" id="hidden-message">
 
-        <div>
-            <strong>お名前:</strong> <span id="confirm-name"></span><br>
-            <strong>メールアドレス:</strong> <span id="confirm-email"></span><br>
-            <strong>電話番号:</strong> <span id="confirm-phone"></span><br>
-            <strong>お問い合わせ内容:</strong> <span id="confirm-message"></span>
-        </div>
+    <button type="submit">送信</button>
+    <button type="button" onclick="window.history.back();">修正する</button>
+  </form>
 
-        <br>
+  <script>
+    // Retrieve form data from URL parameters
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get('name');
+    const email = params.get('email');
+    const phone = params.get('phone');
+    const message = params.get('message');
 
-        <button id="submit-btn" type="button">送信</button>
-    </div>
+    // Display the data for confirmation
+    document.getElementById('confirm-name').textContent = name;
+    document.getElementById('confirm-email').textContent = email;
+    document.getElementById('confirm-phone').textContent = phone;
+    document.getElementById('confirm-message').textContent = message;
 
-    <script>
-        // URLパラメータで受け取ったデータを表示
-        const urlParams = new URLSearchParams(window.location.search);
-        document.getElementById('confirm-name').textContent = urlParams.get('name');
-        document.getElementById('confirm-email').textContent = urlParams.get('email');
-        document.getElementById('confirm-phone').textContent = urlParams.get('phone');
-        document.getElementById('confirm-message').textContent = urlParams.get('message');
-
-        // 送信ボタンをクリックで実際に送信
-        document.getElementById('submit-btn').addEventListener('click', function() {
-            document.getElementById('contact-form').submit();
-        });
-    </script>
-
+    // Set hidden input values to pass data to Formspree
+    document.getElementById('hidden-name').value = name;
+    document.getElementById('hidden-email').value = email;
+    document.getElementById('hidden-phone').value = phone;
+    document.getElementById('hidden-message').value = message;
+  </script>
 </body>
 </html>
