@@ -83,9 +83,8 @@
     document.getElementById('contact-form').addEventListener('submit', function(event) {
       event.preventDefault(); // フォーム送信のデフォルト動作を停止
 
-      // フォームデータの確認
+      // Formデータを取得
       const formData = new FormData(this);
-      console.log("送信データ:", Object.fromEntries(formData.entries())); // 送信データを表示
 
       // Formspreeにデータを送信
       fetch('https://formspree.io/f/xwpvvjkq', {
@@ -93,17 +92,21 @@
         body: formData,
       })
       .then(response => {
-        if (response.ok || response.status === 200) { // 成功時
-          console.log("送信成功");
+        if (response.status === 200 || response.status === 201) {
+          // 成功時にthank_you.htmlに遷移
           window.location.href = 'thank_you.html';
         } else {
-          console.warn("送信失敗: サーバーがエラーを返しました");
-          alert("送信は完了しましたが、予期しない挙動が発生しました。");
+          // エラー内容をログ表示
+          return response.text().then(text => {
+            console.log('エラー詳細:', text);
+            alert('送信に失敗しました。もう一度お試しください。');
+          });
         }
       })
       .catch(error => {
-        console.error("送信エラー:", error); // 詳細なエラー情報をコンソールに表示
-        alert("送信に失敗しました。もう一度お試しください。");
+        // ネットワークエラーなど
+        console.error('ネットワークエラー:', error);
+        alert('ネットワークエラーが発生しました。');
       });
     });
   </script>
