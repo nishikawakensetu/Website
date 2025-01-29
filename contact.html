@@ -8,7 +8,7 @@
 </head>
 <body>
   <h1>お問い合わせフォーム</h1>
-  <form id="contact-form" action="https://formspree.io/f/xwpvvjkq" method="POST">
+  <form id="contact-form">
     <label for="name">お名前</label>
     <input type="text" id="name" name="name" required placeholder="お名前を入力してください">
     
@@ -62,8 +62,8 @@
       sessionStorage.setItem('phone', phone);
       sessionStorage.setItem('message', message);
       
-      // フォームを送信（ページ遷移なし）
-      document.getElementById('contact-form').submit();
+      // 確認画面に遷移
+      window.location.href = 'confirm.html';
     });
   </script>
 </body>
