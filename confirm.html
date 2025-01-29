@@ -32,7 +32,7 @@
       <h2>確認画面<br>
       <span>Confirm</span></h2>
     </div>
-  </section>    
+  </section>
 
   <section class="confirmation-details">
     <div>
@@ -51,6 +51,8 @@
       <button type="submit" class="cta-button">送信する</button>
     </form>
     <a href="contact.html" class="cta-button">修正する</a>
+
+    <div id="response-message" style="margin-top: 20px; font-weight: bold;"></div>
   </section>
 
   <footer>
@@ -83,7 +85,7 @@
     document.getElementById('contact-form').addEventListener('submit', function(event) {
       event.preventDefault(); // フォーム送信のデフォルト動作を停止
 
-      // Formデータを取得
+      // フォームデータを取得
       const formData = new FormData(this);
 
       // Formspreeにデータを送信
@@ -92,21 +94,19 @@
         body: formData,
       })
       .then(response => {
-        if (response.status === 200 || response.status === 201) {
-          // 成功時にthank_you.htmlに遷移
-          window.location.href = 'thank_you.html';
+        const messageElement = document.getElementById('response-message');
+        if (response.ok) {
+          messageElement.style.color = 'green';
+          messageElement.textContent = '送信が成功しました。お問い合わせありがとうございました。';
         } else {
-          // エラー内容をログ表示
-          return response.text().then(text => {
-            console.log('エラー詳細:', text);
-            alert('送信に失敗しました。もう一度お試しください。');
-          });
+          messageElement.style.color = 'red';
+          messageElement.textContent = '送信に失敗しました。再度お試しください。';
         }
       })
-      .catch(error => {
-        // ネットワークエラーなど
-        console.error('ネットワークエラー:', error);
-        alert('ネットワークエラーが発生しました。');
+      .catch(() => {
+        const messageElement = document.getElementById('response-message');
+        messageElement.style.color = 'red';
+        messageElement.textContent = '送信に失敗しました。再度お試しください。';
       });
     });
   </script>
