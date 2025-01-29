@@ -6,42 +6,60 @@
   <title>確認画面</title>
 </head>
 <body>
-  <h1>内容確認</h1>
-  <form id="confirm-form" action="https://formspree.io/f/xwpvvjkq" method="POST">
-    <p><strong>お名前：</strong><span id="confirm-name"></span></p>
-    <p><strong>メールアドレス：</strong><span id="confirm-email"></span></p>
-    <p><strong>電話番号：</strong><span id="confirm-phone"></span></p>
-    <p><strong>お問い合わせ内容：</strong><span id="confirm-message"></span></p>
+  <h1>お問い合わせ内容の確認</h1>
+  <form id="confirm-form" action="https://formspree.io/f/xwpvvjkq" method="post">
+    <p>お名前: <span id="display-name"></span></p>
+    <input type="hidden" name="name" id="name" value="">
 
-    <!-- Hidden inputs to pass data to Formspree -->
-    <input type="hidden" name="name" id="hidden-name">
-    <input type="hidden" name="email" id="hidden-email">
-    <input type="hidden" name="phone" id="hidden-phone">
-    <input type="hidden" name="message" id="hidden-message">
+    <p>メールアドレス: <span id="display-email"></span></p>
+    <input type="hidden" name="email" id="email" value="">
 
-    <button type="submit">送信</button>
-    <button type="button" onclick="window.history.back();">修正する</button>
+    <p>電話番号: <span id="display-phone"></span></p>
+    <input type="hidden" name="phone" id="phone" value="">
+
+    <p>お問い合わせ内容:</p>
+    <p><span id="display-message"></span></p>
+    <input type="hidden" name="message" id="message" value="">
+
+    <button type="button" onclick="history.back()">戻る</button>
+    <button type="submit">送信する</button>
   </form>
 
   <script>
-    // Retrieve form data from URL parameters
-    const params = new URLSearchParams(window.location.search);
-    const name = params.get('name');
-    const email = params.get('email');
-    const phone = params.get('phone');
-    const message = params.get('message');
+    // URLパラメータからデータを取得し表示
+    const urlParams = new URLSearchParams(window.location.search);
+    document.getElementById('display-name').textContent = urlParams.get('name');
+    document.getElementById('name').value = urlParams.get('name');
 
-    // Display the data for confirmation
-    document.getElementById('confirm-name').textContent = name;
-    document.getElementById('confirm-email').textContent = email;
-    document.getElementById('confirm-phone').textContent = phone;
-    document.getElementById('confirm-message').textContent = message;
+    document.getElementById('display-email').textContent = urlParams.get('email');
+    document.getElementById('email').value = urlParams.get('email');
 
-    // Set hidden input values to pass data to Formspree
-    document.getElementById('hidden-name').value = name;
-    document.getElementById('hidden-email').value = email;
-    document.getElementById('hidden-phone').value = phone;
-    document.getElementById('hidden-message').value = message;
+    document.getElementById('display-phone').textContent = urlParams.get('phone');
+    document.getElementById('phone').value = urlParams.get('phone');
+
+    document.getElementById('display-message').textContent = urlParams.get('message');
+    document.getElementById('message').value = urlParams.get('message');
+
+    // フォーム送信後にthank_you.htmlにリダイレクト
+    document.getElementById('confirm-form').addEventListener('submit', function (event) {
+      event.preventDefault(); // デフォルトの送信を防ぐ
+      const form = event.target;
+
+      fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+      })
+      .then((response) => {
+        if (response.ok) {
+          window.location.href = 'thank_you.html'; // 成功時にリダイレクト
+        } else {
+          alert('送信に失敗しました。もう一度お試しください。');
+        }
+      })
+      .catch(() => {
+        alert('エラーが発生しました。');
+      });
+    });
   </script>
 </body>
 </html>
