@@ -4,10 +4,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>お問い合わせフォーム</title>
+  <script>
+    // フロントエンドでのバリデーションを補強
+    function validateForm(event) {
+      const form = document.getElementById('contact-form');
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const phone = form.phone.value.trim();
+      const message = form.message.value.trim();
+
+      const phonePattern = /^\d{3}-\d{4}-\d{4}$|^\d{4}-\d{2}-\d{4}$/;
+      const errors = [];
+
+      if (!name) errors.push("お名前を入力してください。");
+      if (!email) {
+        errors.push("メールアドレスを入力してください。");
+      } else if (!form.email.checkValidity()) {
+        errors.push("正しいメールアドレスを入力してください。");
+      }
+      if (!phone) {
+        errors.push("電話番号を入力してください。");
+      } else if (!phonePattern.test(phone)) {
+        errors.push("電話番号は 080-1234-5678 または 1234-12-1234 の形式で入力してください。");
+      }
+      if (!message) errors.push("お問い合わせ内容を入力してください。");
+
+      if (errors.length > 0) {
+        alert(errors.join("\n"));
+        event.preventDefault();
+      }
+    }
+  </script>
 </head>
 <body>
   <h1>お問い合わせ</h1>
-  <form id="contact-form" action="confirm.html" method="get">
+  <form id="contact-form" action="confirm.html" method="get" onsubmit="validateForm(event)">
     <label for="name">お名前</label>
     <input type="text" id="name" name="name" required>
 
