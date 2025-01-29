@@ -10,27 +10,43 @@
   <h1>お問い合わせフォーム</h1>
   <form id="contact-form" action="https://formspree.io/f/xwpvvjkq" method="POST">
     <label for="name">お名前</label>
-    <input type="text" id="name" name="name" required>
+    <input type="text" id="name" name="name" required placeholder="お名前を入力してください">
     
     <label for="email">メールアドレス</label>
-    <input type="email" id="email" name="_replyto" required placeholder="example@domain.com" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="正しいメールアドレス形式で入力してください。">
+    <input type="email" id="email" name="_replyto" required placeholder="example@domain.com" 
+           pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" 
+           title="正しいメールアドレス形式で入力してください。">
     
     <label for="phone">電話番号</label>
-    <input type="tel" id="phone" name="phone" required placeholder="090-1234-5678" pattern="^\d{2,4}-\d{2,4}-\d{4}$" title="電話番号はXXX-XXXX-XXXXの形式で入力してください。">
+    <input type="tel" id="phone" name="phone" required placeholder="090-1234-5678" 
+           pattern="^\d{2,4}-\d{2,4}-\d{4}$" 
+           title="電話番号はXXX-XXXX-XXXXの形式で入力してください。">
     
     <label for="message">お問い合わせ内容</label>
-    <textarea id="message" name="message" required></textarea>
+    <textarea id="message" name="message" required placeholder="お問い合わせ内容を入力してください"></textarea>
     
     <button type="button" id="submit-btn">確認画面へ進む</button>
   </form>
 
   <script>
     document.getElementById('submit-btn').addEventListener('click', function(event) {
+      // フォームのデータが全て入力されているかチェック
+      var name = document.getElementById('name').value;
+      var email = document.getElementById('email').value;
+      var phone = document.getElementById('phone').value;
+      var message = document.getElementById('message').value;
+
+      // 必須項目が空ならアラート表示
+      if (!name || !email || !phone || !message) {
+        alert("すべての項目を入力してください。");
+        return;
+      }
+
       // フォームのデータをsessionStorageに保存
-      sessionStorage.setItem('name', document.getElementById('name').value);
-      sessionStorage.setItem('email', document.getElementById('email').value);
-      sessionStorage.setItem('phone', document.getElementById('phone').value);
-      sessionStorage.setItem('message', document.getElementById('message').value);
+      sessionStorage.setItem('name', name);
+      sessionStorage.setItem('email', email);
+      sessionStorage.setItem('phone', phone);
+      sessionStorage.setItem('message', message);
       
       // 確認画面に遷移
       window.location.href = 'confirm.html';
