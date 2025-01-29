@@ -85,9 +85,7 @@
 
       // フォームデータの確認
       const formData = new FormData(this);
-      for (const pair of formData.entries()) {
-        console.log(pair[0] + ": " + pair[1]); // フォームデータをコンソールに表示
-      }
+      console.log("送信データ:", Object.fromEntries(formData.entries())); // 送信データを表示
 
       // Formspreeにデータを送信
       fetch('https://formspree.io/f/xwpvvjkq', {
@@ -95,16 +93,16 @@
         body: formData,
       })
       .then(response => {
-        if (response.ok) {
-          // 送信成功時にthank_you.htmlに遷移
+        if (response.ok || response.status === 200) { // 成功時
+          console.log("送信成功");
           window.location.href = 'thank_you.html';
         } else {
-          // 送信失敗時にエラーメッセージを表示
-          alert("送信に失敗しました。もう一度お試しください。");
+          console.warn("送信失敗: サーバーがエラーを返しました");
+          alert("送信は完了しましたが、予期しない挙動が発生しました。");
         }
       })
-      .catch(() => {
-        // 送信失敗時にエラーメッセージを表示
+      .catch(error => {
+        console.error("送信エラー:", error); // 詳細なエラー情報をコンソールに表示
         alert("送信に失敗しました。もう一度お試しください。");
       });
     });
