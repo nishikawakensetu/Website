@@ -1,70 +1,59 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>お問い合わせフォーム</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせフォーム</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; }
+        .container { width: 80%; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #fff; }
+        h1 { text-align: center; }
+        label { display: block; margin-bottom: 5px; }
+        input, textarea { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; }
+        button { background-color: #4CAF50; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background-color: #45a049; }
+    </style>
 </head>
 <body>
-  <h1>お問い合わせフォーム</h1>
-  <form id="contact-form">
-    <label for="name">お名前</label>
-    <input type="text" id="name" name="name" required placeholder="お名前を入力してください">
-    
-    <label for="email">メールアドレス</label>
-    <input type="email" id="email" name="_replyto" required placeholder="example@domain.com" 
-           pattern="^[a-zA-Z0-9._%+-]+@[a-zAZ0-9.-]+\.[a-zA-Z]{2,}$" 
-           title="正しいメールアドレス形式で入力してください。">
-    
-    <label for="phone">電話番号</label>
-    <input type="tel" id="phone" name="phone" required placeholder="090-1234-5678" 
-           pattern="^\d{2,4}-\d{2,4}-\d{4}$" 
-           title="電話番号はXXX-XXXX-XXXXの形式で入力してください。">
-    
-    <label for="message">お問い合わせ内容</label>
-    <textarea id="message" name="message" required placeholder="お問い合わせ内容を入力してください"></textarea>
-    
-    <button type="button" id="submit-btn">確認画面へ進む</button>
-  </form>
 
-  <script>
-    document.getElementById('submit-btn').addEventListener('click', function(event) {
-      // フォームのデータを取得
-      var name = document.getElementById('name').value;
-      var email = document.getElementById('email').value;
-      var phone = document.getElementById('phone').value;
-      var message = document.getElementById('message').value;
+    <div class="container">
+        <h1>お問い合わせフォーム</h1>
+        <form id="contact-form" method="POST" action="https://formspree.io/f/xwpvvjkq">
+            <!-- 名前 -->
+            <label for="name">お名前</label>
+            <input type="text" id="name" name="name" required>
 
-      // 必須項目が空の場合に警告
-      if (!name || !email || !phone || !message) {
-        alert("すべての項目を入力してください。");
-        return;
-      }
+            <!-- メールアドレス -->
+            <label for="email">メールアドレス</label>
+            <input type="email" id="email" name="_replyto" required>
 
-      // メールアドレス形式のチェック
-      var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-      if (!emailPattern.test(email)) {
-        alert("正しいメールアドレス形式で入力してください。");
-        return;
-      }
+            <!-- 電話番号 -->
+            <label for="phone">電話番号</label>
+            <input type="tel" id="phone" name="phone" pattern="^\+?[1-9]\d{1,14}$" required>
 
-      // 電話番号形式のチェック
-      var phonePattern = /^\d{2,4}-\d{2,4}-\d{4}$/;
-      if (!phonePattern.test(phone)) {
-        alert("電話番号はXXX-XXXX-XXXXの形式で入力してください。");
-        return;
-      }
+            <!-- お問い合わせ内容 -->
+            <label for="message">お問い合わせ内容</label>
+            <textarea id="message" name="message" required></textarea>
 
-      // フォームのデータをsessionStorageに保存
-      sessionStorage.setItem('name', name);
-      sessionStorage.setItem('email', email);
-      sessionStorage.setItem('phone', phone);
-      sessionStorage.setItem('message', message);
-      
-      // 確認画面に遷移
-      window.location.href = 'confirm.html';
-    });
-  </script>
+            <button type="submit">送信</button>
+        </form>
+    </div>
+
+    <script>
+        // フォームの送信を確認
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            // 必須フィールドの確認
+            const form = event.target;
+            const email = form.querySelector('[name="_replyto"]');
+            const phone = form.querySelector('[name="phone"]');
+            const message = form.querySelector('[name="message"]');
+
+            if (!email.value || !phone.value || !message.value) {
+                alert("すべてのフィールドを入力してください。");
+                event.preventDefault();
+            }
+        });
+    </script>
+
 </body>
 </html>
