@@ -1,40 +1,48 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>確認画面</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>確認画面</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; }
+        .container { width: 80%; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #fff; }
+        h1 { text-align: center; }
+        button { background-color: #4CAF50; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background-color: #45a049; }
+    </style>
 </head>
 <body>
-  <h1>入力内容の確認</h1>
 
-  <form id="confirm-form" method="POST" action="https://formspree.io/f/xwpvvjkq">
-    <p><strong>お名前:</strong> <span id="confirm-name"></span></p>
-    <p><strong>メールアドレス:</strong> <span id="confirm-email"></span></p>
-    <p><strong>電話番号:</strong> <span id="confirm-phone"></span></p>
-    <p><strong>お問い合わせ内容:</strong> <span id="confirm-message"></span></p>
+    <div class="container">
+        <h1>確認画面</h1>
+        <p>以下の内容で送信しますか？</p>
 
-    <button type="button" id="edit-btn">修正する</button>
-    <button type="submit">送信する</button>
-  </form>
+        <div>
+            <strong>お名前:</strong> <span id="confirm-name"></span><br>
+            <strong>メールアドレス:</strong> <span id="confirm-email"></span><br>
+            <strong>電話番号:</strong> <span id="confirm-phone"></span><br>
+            <strong>お問い合わせ内容:</strong> <span id="confirm-message"></span>
+        </div>
 
-  <script>
-    // sessionStorageからデータを取得して表示
-    document.getElementById('confirm-name').textContent = sessionStorage.getItem('name');
-    document.getElementById('confirm-email').textContent = sessionStorage.getItem('email');
-    document.getElementById('confirm-phone').textContent = sessionStorage.getItem('phone');
-    document.getElementById('confirm-message').textContent = sessionStorage.getItem('message');
+        <br>
 
-    // 修正ボタンでフォームページに戻る
-    document.getElementById('edit-btn').addEventListener('click', function() {
-      window.history.back();
-    });
+        <button id="submit-btn" type="button">送信</button>
+    </div>
 
-    // フォーム送信時にsessionStorageをクリア
-    document.getElementById('confirm-form').addEventListener('submit', function() {
-      sessionStorage.clear();
-    });
-  </script>
+    <script>
+        // URLパラメータで受け取ったデータを表示
+        const urlParams = new URLSearchParams(window.location.search);
+        document.getElementById('confirm-name').textContent = urlParams.get('name');
+        document.getElementById('confirm-email').textContent = urlParams.get('email');
+        document.getElementById('confirm-phone').textContent = urlParams.get('phone');
+        document.getElementById('confirm-message').textContent = urlParams.get('message');
+
+        // 送信ボタンをクリックで実際に送信
+        document.getElementById('submit-btn').addEventListener('click', function() {
+            document.getElementById('contact-form').submit();
+        });
+    </script>
+
 </body>
 </html>
