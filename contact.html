@@ -8,13 +8,13 @@
 </head>
 <body>
   <h1>お問い合わせフォーム</h1>
-  <form id="contact-form" method="POST" action="https://formspree.io/f/xwpvvjkq">
+  <form id="contact-form">
     <label for="name">お名前</label>
     <input type="text" id="name" name="name" required placeholder="お名前を入力してください">
     
     <label for="email">メールアドレス</label>
     <input type="email" id="email" name="_replyto" required placeholder="example@domain.com" 
-           pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" 
+           pattern="^[a-zA-Z0-9._%+-]+@[a-zAZ0-9.-]+\.[a-zA-Z]{2,}$" 
            title="正しいメールアドレス形式で入力してください。">
     
     <label for="phone">電話番号</label>
