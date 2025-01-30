@@ -1354,3 +1354,70 @@ canvas {
 .confirmation-details .cta-button:hover {
   background-color: #357ABD;
 }
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px; /* スマホ向けに文字サイズを調整 */
+    line-height: 1.6;
+  }
+
+  #menu_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #menu {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    text-align: center;
+  }
+
+  #menu li {
+    margin: 10px 0;
+  }
+
+  .img-frame {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* スマホ向けに画像間の隙間を調整 */
+  }
+
+  .CompanyExplanation {
+    padding: 15px;
+  }
+
+  .env-wrap {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .env-wrap .left, .env-wrap .rights {
+    margin-bottom: 10px;
+  }
+
+  .flex {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .snip1445 img {
+    width: 100%; /* 画像をスマホ幅に合わせる */
+    height: auto;
+  }
+
+  .contactbutton {
+    padding: 15px;
+  }
+
+  #contacTel, #contactWeb {
+    text-align: center;
+  }
+
+  .page_top a {
+    padding: 20px 0;
+    background-size: 10px;
+  }
+}
