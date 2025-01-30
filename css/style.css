@@ -1345,6 +1345,10 @@ canvas {
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
+  display: inline-block; /* 共通化 */
+  text-align: center;    /* aタグに必要 */
+  text-decoration: none; /* aタグの下線を消す */
+}
 }
 
 .confirmation-details .cta-button:hover {
