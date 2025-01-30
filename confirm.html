@@ -51,7 +51,9 @@
       </ol>
     </div>
   </section>
-  
+
+    <section class="confirmation-details">
+    <div>  
    <form id="confirm-form" action="https://formspree.io/f/xwpvvjkq" method="POST">
     <p><strong>お名前：</strong><span id="confirm-name"></span></p>
     <p><strong>メールアドレス：</strong><span id="confirm-email"></span></p>
@@ -68,6 +70,9 @@
     <button type="button" onclick="window.history.back();">修正する</button>
   </form>
 
+    </div>
+    </section>
+      
   <script>
     // Retrieve form data from URL parameters
     const params = new URLSearchParams(window.location.search);
