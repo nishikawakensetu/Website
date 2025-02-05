@@ -633,6 +633,12 @@ footer {
   background-color: white;
 }
 
+@media(max-width: 768px){
+  .recruit-desc{
+    width: auto;
+  }
+}
+
 .recruit-content{
   background-color: white;
   border-radius: 10px;
@@ -674,6 +680,15 @@ footer {
   box-sizing: content-box;
   margin: 0 15px 20px 0;
   list-style-type: none;
+}
+
+@media (max-width: 768px) { /* スマホ用のブレークポイント */
+  .gallery{
+    padding-left: 0px !important;
+  }
+  .gallery li {
+    width: auto; /* 必要に応じて適切な値に変更 */
+  }
 }
 
 ul.gallery .arrow {
@@ -810,22 +825,12 @@ ul.gallery .arrow {
   padding: 8px 0;
 }
 
-
-
-
 .img-frame{
   position: relative;
   width: 100%;
   height: 700px;
   overflow: hidden;
   margin: 0 auto;
-}
-
-@media screen and (max-width: 767px){
-.img-frame{
-  width: 100%;
-  height: 200px;
-}
 }
 
 .img-01, .img-02, .img-03{
@@ -844,6 +849,14 @@ ul.gallery .arrow {
   animation: slide-animation-01 24s infinite;
 }
 
+/* スマホ用 */
+@media (max-width: 768px) {
+  .img-01 {
+    animation: slide-animation-01 20s infinite;
+    background-position: center top; /* スマホ用の位置調整 */
+  }
+}
+
 .img-02{
   background-image: url('https://raw.githubusercontent.com/nishikawakensetu/Website/refs/heads/main/images/kajiyasikihakunaisenn/sekougo.JPG');
   animation: slide-animation-02 24s infinite;
@@ -853,6 +866,15 @@ ul.gallery .arrow {
   background-image: url('https://raw.githubusercontent.com/nishikawakensetu/Website/refs/heads/main/images/eguchiokumurasen/sekougo2.JPG');
   background-position: center -200px;
   animation: slide-animation-03 24s infinite;
+}
+
+/* スマホ用 */
+@media (max-width: 768px) {
+  .img-03 {
+  background-position: center -200px;
+  background-position: center top; /* スマホ用の位置調整 */
+  animation: slide-animation-03 24s infinite;
+  }
 }
 
 @keyframes slide-animation-01 {
@@ -1218,7 +1240,6 @@ ul.gallery .arrow {
 
 #contactWeb {
   float: right;
-  width: 330px;
   margin-top: 10px
 }
 
@@ -1345,16 +1366,13 @@ canvas {
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
-  display: inline-block; /* 共通化 */
-  text-align: center;    /* aタグに必要 */
-  text-decoration: none; /* aタグの下線を消す */
-}
 }
 
 .confirmation-details .cta-button:hover {
   background-color: #357ABD;
 }
 
+/* ベーススタイルは既存のstyle.cssに記載済みの前提 */
 @media (max-width: 768px) {
   body {
     font-size: 14px; /* スマホ向けに文字サイズを調整 */
@@ -1376,12 +1394,6 @@ canvas {
 
   #menu li {
     margin: 10px 0;
-  }
-
-  .img-frame {
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* スマホ向けに画像間の隙間を調整 */
   }
 
   .CompanyExplanation {
@@ -1412,7 +1424,21 @@ canvas {
     padding: 15px;
   }
 
+  .mailimg{
+    padding-left: 0px;
+  }
+
+  #contacTel span{
+    margin-left: 70px;
+  }
+
+  #contacTel #number{
+    padding-left: 0px !important;
+    padding-right: 20px !important;
+  }
+
   #contacTel, #contactWeb {
+    width: 330px !important;
     text-align: center;
   }
 
