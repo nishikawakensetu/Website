@@ -1,0 +1,931 @@
+#phonemenuA {
+    display: none;
+    padding: 0;
+    margin: 0
+}
+
+#meanmenu,#humberger,#drawernav,.spbr {
+    display: none
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size:14px
+    }
+
+    .bg01,.bg02 {
+        background-attachment: scroll
+    }
+
+    .middle {
+        display: none
+    }
+
+    #header #menu_box {
+        width: 95%;
+        margin: 0 auto
+    }
+
+    #header #menu_box #menu {
+        display: none
+    }
+
+    #footer .inner {
+        width: 95%
+    }
+
+    #footer .inner #fmenu {
+        text-align: left
+    }
+
+    #footer .inner #fmenu li {
+        float: none;
+        width: 100%;
+        margin: 0 0 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px dotted #DDDDDD
+    }
+
+    #footer .inner #fmenu li:last-child {
+        margin: 0;
+        padding-bottom: 0;
+        border-bottom: none
+    }
+
+    #slideshow #juicysliderbox span {
+        font-size: 2rem
+    }
+
+    .section_common {
+        position: static;
+        padding: 30px;
+        min-height: auto
+    }
+
+    .section_common .item_wrap {
+        position: static;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 40px
+    }
+
+    .section .inner {
+        min-width: 95%;
+        padding: 40px 0
+    }
+
+    .section .inner .dishes_image {
+        margin-bottom: 30px
+    }
+
+    .box_common {
+        width: 100%
+    }
+
+    .culumn3 .child {
+        float: none;
+        width: 100%;
+        margin-bottom: 30px
+    }
+
+    .culumn3 .child:last-child {
+        margin-bottom: 0
+    }
+
+    .mtitle02 span {
+        display: block;
+        margin-left: 0
+    }
+
+    .snip {
+        padding: 40px 0
+    }
+
+    .snip figure.snip1432 figcaption>div.two h3 {
+        font-size: 1.6rem
+    }
+
+    .fright2 {
+        float: none;
+        margin: 0 0 20px
+    }
+
+    .w500px {
+        width: 70%;
+        margin: 0 auto 20px
+    }
+
+    #page {
+        padding: 0;
+        position: relative;
+        z-index: 2;
+        left: 0;
+        -webkit-transition: all 400ms cubic-bezier(1, 0, 0, 1);
+        -moz-transition: all 400ms cubic-bezier(1, 0, 0, 1);
+        -o-transition: all 400ms cubic-bezier(1, 0, 0, 1);
+        transition: all 400ms cubic-bezier(1, 0, 0, 1);
+        -webkit-transition-timing-function: cubic-bezier(1, 0, 0, 1);
+        -moz-transition-timing-function: cubic-bezier(1, 0, 0, 1);
+        -o-transition-timing-function: cubic-bezier(1, 0, 0, 1);
+        transition-timing-function: cubic-bezier(1, 0, 0, 1)
+    }
+
+    #drawernav {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: -240px;
+        width: 240px;
+        height: 100%;
+        background: #483b8c;
+        color: #FFFFFF;
+        z-index: 500;
+        padding-top: 40px;
+        -webkit-transition: all 400ms cubic-bezier(1, 0, 0, 1);
+        -moz-transition: all 400ms cubic-bezier(1, 0, 0, 1);
+        -o-transition: all 400ms cubic-bezier(1, 0, 0, 1);
+        transition: all 400ms cubic-bezier(1, 0, 0, 1);
+        -webkit-transition-timing-function: cubic-bezier(1, 0, 0, 1);
+        -moz-transition-timing-function: cubic-bezier(1, 0, 0, 1);
+        -o-transition-timing-function: cubic-bezier(1, 0, 0, 1);
+        transition-timing-function: cubic-bezier(1, 0, 0, 1)
+    }
+
+    #drawernav ul {
+        list-style: none;
+        padding: 0
+    }
+
+    #drawernav ul li a {
+        color: #fff;
+        display: block;
+        padding: 10px 20px;
+        text-decoration: none;
+        font-size: .8rem
+    }
+
+    #drawernav ul li a:before {
+        font-family: 'FontAwesome';
+        content: "\f0da";
+        margin-right: 10px;
+        color: #dadf00
+    }
+
+    .icon-bar {
+        height: 2px;
+        background: #fff;
+        display: block;
+        margin-bottom: 6px;
+        -webkit-transition: all 400ms cubic-bezier(1, 0, 0, 1);
+        -moz-transition: all 400ms cubic-bezier(1, 0, 0, 1);
+        -o-transition: all 400ms cubic-bezier(1, 0, 0, 1);
+        transition: all 400ms cubic-bezier(1, 0, 0, 1);
+        -webkit-transition-timing-function: cubic-bezier(1, 0, 0, 1);
+        -moz-transition-timing-function: cubic-bezier(1, 0, 0, 1);
+        -o-transition-timing-function: cubic-bezier(1, 0, 0, 1);
+        transition-timing-function: cubic-bezier(1, 0, 0, 1)
+    }
+
+    .fixed-content {
+        right: inherit;
+        width: 100%;
+        -webkit-transition: all 400ms cubic-bezier(1, 0, 0, 1);
+        -moz-transition: all 400ms cubic-bezier(1, 0, 0, 1);
+        -o-transition: all 400ms cubic-bezier(1, 0, 0, 1);
+        transition: all 400ms cubic-bezier(1, 0, 0, 1);
+        -webkit-transition-timing-function: cubic-bezier(1, 0, 0, 1);
+        -moz-transition-timing-function: cubic-bezier(1, 0, 0, 1);
+        -o-transition-timing-function: cubic-bezier(1, 0, 0, 1);
+        transition-timing-function: cubic-bezier(1, 0, 0, 1)
+    }
+
+    #overlay {
+        z-index: -1;
+        opacity: 0;
+        background: #000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        -webkit-transition: all 400ms cubic-bezier(1, 0, 0, 1);
+        -moz-transition: all 400ms cubic-bezier(1, 0, 0, 1);
+        -o-transition: all 400ms cubic-bezier(1, 0, 0, 1);
+        transition: all 400ms cubic-bezier(1, 0, 0, 1);
+        -webkit-transition-timing-function: cubic-bezier(1, 0, 0, 1);
+        -moz-transition-timing-function: cubic-bezier(1, 0, 0, 1);
+        -o-transition-timing-function: cubic-bezier(1, 0, 0, 1);
+        transition-timing-function: cubic-bezier(1, 0, 0, 1)
+    }
+
+    #humberger {
+        display: block;
+        position: fixed;
+        top: 1.5%;
+        right: 1.5%;
+        z-index: 600;
+        width: 30px;
+        padding: 14px 9px 6px;
+        cursor: pointer;
+        background: #483b8c
+    }
+
+    .drawer-opened #page {
+        left: -240px;
+        box-shadow: 1px 0 2px #000;
+        -webkit-box-shadow: 1px 0 2px #000
+    }
+
+    .drawer-opened .fixed-content {
+        left: -240px
+    }
+
+    .drawer-opened #drawernav {
+        right: 0
+    }
+
+    .drawer-opened #humberger .icon-bar {
+        background: #fff
+    }
+
+    .drawer-opened #humberger :nth-child(1) {
+        transform: translate(0, 8px) rotate(45deg);
+        -webkit-transform: translate(0, 8px) rotate(45deg)
+    }
+
+    .drawer-opened #humberger :nth-child(2) {
+        transform: translate(-20px, 0);
+        -webkit-transform: translate(-20px, 0);
+        opacity: 0
+    }
+
+    .drawer-opened #humberger :nth-child(3) {
+        transform: translate(0, -8px) rotate(-45deg);
+        -webkit-transform: translate(0, -8px) rotate(-45deg)
+    }
+
+    .drawer-opened #overlay {
+        opacity: 0.3;
+        left: -240px;
+        position: fixed
+    }
+}
+
+@media screen and (max-width: 670px) {
+    body {
+        font-size:12px
+    }
+
+    .spbr {
+        display: block
+    }
+
+    .pcbr {
+        display: none
+    }
+
+    .fleft2 {
+        float: none;
+        margin-right: 0
+    }
+
+    .fleft2 img {
+        width: 100%;
+        height: auto
+    }
+
+    .w300px,.w500px {
+        width: 100%
+    }
+
+    #header {
+        position: static
+    }
+
+    #header #menu_box {
+        padding: 10px 0 8px
+    }
+
+    #header #menu_box #logo {
+        width: 150px
+    }
+
+    #footer .inner .lsingle,#footer .inner .rsingle {
+        text-align: center
+    }
+
+    #slideshow {
+        box-shadow: 0 0 0 7px #FFFFFF inset
+    }
+
+    #slideshow #juicysliderbox span {
+        font-size: 1rem
+    }
+
+    .lsingle,.rsingle {
+        float: none;
+        width: auto
+    }
+
+    .section .inner {
+        padding: 15px 0
+    }
+
+    .section_common {
+        padding: 10px
+    }
+
+    .section_common .item_wrap {
+        padding: 10px
+    }
+
+    .mtitle {
+        font-size: 1.4rem
+    }
+
+    .mtitle span {
+        font-size: .8rem;
+        margin-top: 0
+    }
+
+    .mtitle_sp {
+        font-size: 1rem
+    }
+
+    .mtitle02 {
+        font-size: 1rem
+    }
+
+    .mtitle02 span {
+        font-size: .8rem
+    }
+
+    .btn01 {
+        width: 95%
+    }
+
+    .scrollbar {
+        height: auto
+    }
+
+    .snip figure.snip1432 {
+        float: none;
+        min-width: 100%
+    }
+
+    .company th {
+        width: 25%
+    }
+
+    .tbl th,.tbl td {
+        display: block;
+        width: 100%;
+        padding: 0
+    }
+
+    .tbl th {
+        border-bottom: none;
+        padding: 15px 0 5px;
+        color: #483b8c
+    }
+
+    .tbl th span {
+        border-right: none
+    }
+
+    .tbl td {
+        padding-bottom: 15px
+    }
+
+    .gallery_ul .gallery_list {
+        width: 49%;
+        margin: 0 1% 0 0
+    }
+
+    .gallery_ul .gallery_list:nth-child(2n) {
+        margin: 0 0 0
+    }
+
+    .gallery_ul .gallery_list:last-child {
+        margin: 0
+    }
+
+    .gallery_ul .gallery_list a {
+        display: none;
+        overflow: hidden
+    }
+
+    .gallery_ul .gallery_list a:first-child {
+        height: auto
+    }
+
+    .sp_img {
+        display: block;
+        width: 200px;
+        margin: 0 auto
+    }
+
+    .pc_img {
+        display: none
+    }
+
+    .specification li {
+        width: 48.5%
+    }
+
+    .specification li:nth-child(3n) {
+        margin: 0 3% 3% 0
+    }
+
+    .specification li:nth-child(2n) {
+        margin: 0 0 3% 0
+    }
+
+    .page_title_box {
+        padding: 50px 0
+    }
+
+    .page_title_box .page_title {
+        font-size: 1.8rem;
+        letter-spacing: 0.1rem
+    }
+
+    .page_title_box .page_title span {
+        font-size: 1.2rem
+    }
+
+    .business-list {
+        justify-content: space-around
+    }
+
+    .business-list>li {
+        width: 100%
+    }
+
+    .form dl {
+        margin: 10px 0
+    }
+
+    .form dl dt {
+        float: none;
+        width: 100%;
+        height: 20px;
+        line-height: 20px;
+        padding-top: 10px
+    }
+
+    .form dl dd {
+        width: 100%;
+        padding-left: 0;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        line-height: 20px
+    }
+
+    .form dl dd:last-child {
+        border-bottom: 0px;
+        margin-bottom: 0px
+    }
+
+    .form .textarea,.form textarea,.form .dropdown {
+        width: 90%
+    }
+
+    .form .textarea02 {
+        width: 42%
+    }
+
+    .form button {
+        width: 235px
+    }
+
+    .form-list li {
+        width: 100%;
+        margin: 0 auto 3px
+    }
+
+    .contacBox {
+        width: 100%
+    }
+
+    .contacTitle {
+        font-size: 14px;
+        font-weight: normal
+    }
+
+    #contacTel,#contactWeb {
+        width: 100%;
+        float: none
+    }
+
+    #contacTel {
+        border: 0;
+        padding: 3px 0
+    }
+
+    #contacTel #number {
+        font-size: 25px;
+        padding: 0;
+        text-align: center
+    }
+
+    #contacTel span {
+        width: 100%;
+        text-align: center
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #wrapper {
+        overflow:hidden
+    }
+
+    .list1 li {
+        width: 100%;
+        margin-bottom: 5px;
+        padding: 5px 0 5px 10px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box
+    }
+}
+
+/*# sourceMappingURL=smartphone.css.map */
+
+/* ナビゲーションバー全体 */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; /* 左右の余白を確保 */
+    background-color: white;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+  }
+  
+  /* ロゴ部分 */
+  .logo {
+    color: black;
+    font-size: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .logo a{
+    color: black; /* 文字色 */
+    text-align: left; /* 左寄せ */
+    padding-left: 20px;
+    margin: 0;
+    font-family:'Times New Roman', Times, serif
+  }
+
+  .logo a:hover {
+    color: #909090b1; /* ホバー時の文字色 */
+  }
+  
+/* メニューのトグル（三本線） */
+/* ハンバーガーメニューのトグル部分 */
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 35px;
+    height: 30px;
+    background-color: black;
+    padding: 5px;
+    cursor: pointer;
+    z-index: 101;
+    margin-right: 30px;
+  }
+  
+  /* 三本線 */
+  .menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
+  }
+  
+  /* メニューが開いたときに、三本線を×にする */
+.menu-toggle.close span:nth-child(1) {
+    transform: rotate(45deg);
+    position: relative;
+    top: 8px;
+  }
+  
+  .menu-toggle.close span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-toggle.close span:nth-child(3) {
+    transform: rotate(-45deg);
+    position: relative;
+    top: -8px;
+  }
+  
+  
+  /* メディアクエリ: スマホサイズ */
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: flex; /* スマホサイズで表示 */
+      position: absolute;
+      right: 50px; /* 右端から100px離す */
+      top: 15px; /* 上端との距離を調整 */
+    }
+  }
+  
+  
+  
+  /* 三本線（バー） */
+  .menu-toggle .bar {
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 2px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+/* メニューが開いたときの状態 */
+.nav-links {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: black;
+    width: 250px;
+    height: 100%;
+    z-index: 100;
+    transform: translateX(100%); /* 初期状態で右端に隠す */
+    transition: transform 0.3s ease;
+    margin-top: 0px;
+    padding-top: 80px;
+  }
+
+  .nav-links.active {
+    display: block;
+    transform: translateX(0);  /* メニューを表示させる */
+  }
+  
+  /* メニューが開いた状態 */
+  .nav-links.open {
+    right: 0;
+  }
+  
+  
+  .nav-links li {
+    list-style: none;
+    margin: 20px 0;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 30px; /* 行間を広げる */
+  }
+
+  /* メニュー項目に矢印を追加 */
+.nav-links li a::before {
+    content: '\25B6'; /* Unicode矢印▶ */
+    margin-right: 10px; /* 矢印と文字の間隔 */
+    font-size: 18px; /* 矢印の大きさ */
+  }
+  
+  /* メディアクエリ: スマホサイズ */
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: flex; /* スマホサイズで表示 */
+      position: absolute; /* 位置を調整 */
+      right: 20px; /* 右端との距離を調整 */
+      top: 15px; /* 上端との距離を調整 */
+    }
+  
+    .nav-links {
+      display: flex;
+    }
+  }
+  
+
+/* スマホ用のスタイル */
+@media (max-width: 768px) {
+    .img-frame {
+      height: auto; /* 高さを自動調整 */
+      max-height: 400px; /* スマホ用に最大高さを設定（お好みで調整） */
+    }
+    
+    .img-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* アスペクト比を保ちながら画像を枠いっぱいに調整 */
+    }
+  }
+
+/* スマホ用のアニメーション */
+@media (max-width: 768px) {
+    @keyframes slide-animation-01 {
+       0% {opacity: 1; transform: scale(1.0);}
+      30% {opacity: 1;}
+      40% {opacity: 0; transform: scale(1.05);}  /* スマホでは少し小さめに調整 */
+      90% {opacity: 0;}
+     100% {opacity: 1; transform: scale(1.0);}
+    }
+  
+    /* 同様に他のアニメーションもスマホ用に調整 */
+    @keyframes slide-animation-02 {
+       0% {opacity: 0;}
+      30% {opacity: 0; transform: scale(1.05);} /* 少し小さめ */
+      40% {opacity: 1;}
+      60% {opacity: 1;}
+      70% {opacity: 0; transform: scale(1.0);}
+     100% {opacity: 0;}
+    }
+  
+    @keyframes slide-animation-03 {
+       0% {opacity: 0;}
+      60% {opacity: 0; transform: scale(1.0);}
+      70% {opacity: 1;}
+      90% {opacity: 1;}
+     100% {opacity: 0; transform: scale(1.05);} /* スマホでは少し小さめ */
+    }
+  }
+
+/* スマホ用のスタイル */
+@media (max-width: 768px) {
+.CompanyInfo{
+    padding: auto 0 !important;
+    width: 90% !important; 
+  }
+}
+
+@media (max-width: 768px) {
+    .CompanyInfo {
+      padding: 0px !important; /* !importantで強制適用 */
+      font-size: 20px !important; /* !importantで強制適用 */
+    }
+  
+    .b-color-m20 {
+      width: 100% !important; /* 幅を90%に変更 */
+      padding: 10px !important; /* スマホ用にパディング調整 */
+      border: 2px solid #a1a1a16d !important; /* スマホ用にボーダー調整 */
+    }
+  }
+
+/* スマホ用の調整 */
+@media (max-width: 768px) {
+    .env {
+      background-color: #ededed !important;
+      margin: 20px 5% 50px 5% !important; /* 余白を調整 */
+      padding: 30px 0 !important; /* パディングも調整 */
+    }
+  
+    .env .env-wrap {
+      display: block !important; /* フレックスを解除して縦並びに変更 */
+    }
+  
+    .env .left {
+      width: 100% !important; /* 幅を100%にして縦並びに */
+      text-align: center !important;
+      display: block !important;
+      margin-bottom: 20px !important; /* 下に少しスペースを追加 */
+    }
+  
+    .f-size85 {
+      font-size: 30px !important; /* スマホ用に文字サイズを小さく */
+    }
+  
+    .env .rights {
+      width: 100% !important; /* 幅を100%に変更 */
+      text-align: center !important; /* 左寄せではなく中央寄せ */
+      display: block !important;
+      align-items: flex-start !important;
+    }
+  
+    .envimg {
+      width: 500px !important; /* 画像を親要素に合わせて100% */
+      max-width: 100% !important; /* 画像が大きくならないように */
+      height: auto !important; /* 高さは自動で調整 */
+    }
+  
+    .env .view-more {
+      text-align: center !important;
+    }
+  
+    .view-more {
+      color: #dd4d4d !important;
+      font-size: 16px !important; /* フォントサイズを少し小さく */
+      border: 1px solid #dd4d4d !important;
+      margin: 10px 250px !important; /* ボタンのマージンを調整 */
+    }
+    
+    .view-more a:visited {
+      color: #dd4d4d !important;
+    }
+  
+    .view-more a:hover {
+      color: #da8383 !important; /* ホバー時の文字色 */
+    }
+  }
+
+/* スマホ用調整 */
+@media (max-width: 768px) {
+    /* メニュータイトル */
+    .mtitle {
+      font-size: 1.8rem !important; /* フォントサイズを小さく */
+    }
+  
+    .mtitle span {
+      font-size: 1rem !important; /* スパンのフォントサイズも調整 */
+    }
+  
+    /* フレックスレイアウトを縦並びに変更 */
+    .flex {
+      display: block !important;
+      flex-direction: column !important; /* 縦並びに */
+      align-items: center !important; /* 中央寄せ */
+      margin: auto 0 !important;
+      margin-bottom: 40px !important; /* マージンを少し減らす */
+    }
+  
+    /* 各メニューアイテムの幅を調整 */
+    .flex li {
+      width: 100% !important; /* 90%の幅に変更して中央揃え */
+      height: 200px !important;
+    }
+  
+    .snip1445{
+        height: 200px !important;
+    }
+
+    /* サムネイル画像のサイズ調整 */
+    .snip1445 img {
+      height: 200px !important; /* 高さを調整 */
+      width: 100% !important; /* 幅は100%に */
+    }
+  
+    .snip1445 .click {
+      font-size: 0.9rem !important; /* フォントサイズ調整 */
+    }
+  
+    /* サムネイルの効果調整 */
+    .snip1445:hover img {
+      filter: brightness(0.6) !important; /* 画像の暗さ調整 */
+    }
+  
+  
+    /* view-more ボタン */
+    .view-more {
+      font-size: 16px !important; /* フォントサイズを調整 */
+    }
+  
+    .view-more a {
+      font-size: 16px !important; /* フォントサイズ調整 */
+    }
+  }
+  
+  /* スマホ用スタイル */
+  @media (max-width: 768px) {
+    .contacBox{
+    width: 100% !important; /* 画面幅に合わせて自動調整 */
+    max-width: 768px !important; /* 必要なら上限幅を設定 */
+    }
+    .contact-section {
+      padding: 15px 5px !important;
+    }
+
+    .contact-title {
+      font-size: 20px !important;
+    }
+
+    .contact-subtitle {
+      font-size: 14px !important;
+    }
+
+    .contact-info {
+      gap: 10px !important;
+    }
+
+    .contact-info div {
+      font-size: 16px !important;
+    }
+
+    .contact-button {
+      font-size: 14px !important;
+      padding: 8px 15px !important;
+    }
+    .contactWeb{
+        width: 100% !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+ .breadcrumb_box .breadcrumb{
+    width: 100% !important;
+    max-width: 768px !important;
+    padding: 0px;
+ }
+}
