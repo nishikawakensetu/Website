@@ -1,32 +1,30 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1>">
-    <title>西川建設工業</title>
-    <link rel="stylesheet" href="css/phone.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Yomogi&display=swap" rel="stylesheet">
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>確認画面 | 西川建設工業</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Yomogi&display=swap" rel="stylesheet">
+</head>
 <body>
-
   <!-- ヘッダー -->
-  <nav class="navbar" style="border-top: 5px solid #000000;">
-    <div class="logo"><a href="index-mobile.html" style="text-decoration: none;">西川建設工業</a></div>
-    <div class="menu-toggle" id="menuToggle">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
+  <header>
+    <div class="container">
+      <div id="menu_box">
+        <h1 id="CompanyName"><a href="index.html" style="text-decoration: none; color: black;">有限会社西川建設工業</a></h1>
+        <nav class="menuran">
+          <ul id="menu" class="clearfix">
+            <li><a href="index.html">ホーム</a></li>
+            <li><a href="about.html">会社案内</a></li>
+            <li><a href="Construction.html">施工事例</a></li>
+            <li><a href="recruit.html">採用情報</a></li>
+            <li><a href="contact.html">お問い合わせ</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index-mobile.html">ホーム</a></li>
-      <li><a href="about-mobile.html">会社案内</a></li>
-      <li><a href="Construction-mobile.html">施工事例</a></li>
-      <li><a href="recruit-mobile.html">採用情報</a></li>
-      <li><a href="contact-mobile.html">お問い合わせ</a></li>
-    </ul>
-  </nav>
-  <script src="js/script.js"></script>
+  </header>
 
   <!-- 確認画面セクション -->
   <section>
@@ -52,7 +50,7 @@
       <input type="hidden" name="message" id="confirm-message-input">
       <button type="submit" class="cta-button">送信する</button>
     </form>
-    <a href="contact-mobile.html" class="cta-button">修正する</a>
+    <a href="contact.html" class="cta-button">修正する</a>
 
     <div id="response-message" style="margin-top: 20px; font-weight: bold;"></div>
   </section>
@@ -91,27 +89,29 @@
       const formData = new FormData(this);
 
       // Formspreeにデータを送信
-fetch('https://formspree.io/f/xwpvvjkq', {
-  method: 'POST',
-  body: formData,
-})
-.then(response => response.json())  // レスポンスをJSONとして処理
-.then(data => {
-  const messageElement = document.getElementById('response-message');
-  if (data.ok) {  // Formspreeのレスポンスを基に確認
-    messageElement.style.color = 'green';
-    messageElement.textContent = '送信が成功しました。お問い合わせありがとうございました。';
-  } else {
-    messageElement.style.color = 'red';
-    messageElement.textContent = '送信に失敗しました。再度お試しください。';
-  }
-})
-.catch(error => {
-  console.error('Error:', error);
-  const messageElement = document.getElementById('response-message');
-  messageElement.style.color = 'red';
-  messageElement.textContent = '送信に失敗しました。再度お試しください。';
-});
+      fetch('https://formspree.io/f/xwpvvjkq', {
+        method: 'POST',
+        body: formData,
+        redirect: 'manual', // リダイレクトを追跡しない
+      })
+      .then(response => response.text())  // レスポンスをテキストとして処理
+      .then(data => {
+        console.log(data);  // レスポンス内容をログで確認
+        const messageElement = document.getElementById('response-message');
+        if (response.ok) {
+          messageElement.style.color = 'green';
+          messageElement.textContent = '送信が成功しました。お問い合わせありがとうございました。';
+        } else {
+          messageElement.style.color = 'red';
+          messageElement.textContent = '送信に失敗しました。再度お試しください。';
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        const messageElement = document.getElementById('response-message');
+        messageElement.style.color = 'red';
+        messageElement.textContent = '送信に失敗しました。再度お試しください。';
+      });
     });
   </script>
 </body>
