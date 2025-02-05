@@ -91,27 +91,27 @@
       const formData = new FormData(this);
 
       // Formspreeにデータを送信
-      fetch('https://formspree.io/f/xwpvvjkq', {
-        method: 'POST',
-        body: formData,
-        redirect: 'manual', // リダイレクトを追跡しない
-      })
-      .then(response => {
-        const messageElement = document.getElementById('response-message');
-        if (response.ok) {
-          messageElement.style.color = 'green';
-          messageElement.textContent = '送信が成功しました。お問い合わせありがとうございました。';
-        } else {
-          messageElement.style.color = 'red';
-          messageElement.textContent = '送信に失敗しました。再度お試しください。';
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        const messageElement = document.getElementById('response-message');
-        messageElement.style.color = 'red';
-        messageElement.textContent = '送信に失敗しました。再度お試しください。';
-      });
+fetch('https://formspree.io/f/xwpvvjkq', {
+  method: 'POST',
+  body: formData,
+})
+.then(response => response.json())  // レスポンスをJSONとして処理
+.then(data => {
+  const messageElement = document.getElementById('response-message');
+  if (data.ok) {  // Formspreeのレスポンスを基に確認
+    messageElement.style.color = 'green';
+    messageElement.textContent = '送信が成功しました。お問い合わせありがとうございました。';
+  } else {
+    messageElement.style.color = 'red';
+    messageElement.textContent = '送信に失敗しました。再度お試しください。';
+  }
+})
+.catch(error => {
+  console.error('Error:', error);
+  const messageElement = document.getElementById('response-message');
+  messageElement.style.color = 'red';
+  messageElement.textContent = '送信に失敗しました。再度お試しください。';
+});
     });
   </script>
 </body>
