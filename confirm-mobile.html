@@ -1,118 +1,118 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>確認画面 | 西川建設工業</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Yomogi&display=swap" rel="stylesheet">
-</head>
-<body>
-  <!-- ヘッダー -->
-  <header>
-    <div class="container">
-      <div id="menu_box">
-        <h1 id="CompanyName"><a href="index.html" style="text-decoration: none; color: black;">有限会社西川建設工業</a></h1>
-        <nav class="menuran">
-          <ul id="menu" class="clearfix">
-            <li><a href="index.html">ホーム</a></li>
-            <li><a href="about.html">会社案内</a></li>
-            <li><a href="Construction.html">施工事例</a></li>
-            <li><a href="recruit.html">採用情報</a></li>
-            <li><a href="contact.html">お問い合わせ</a></li>
-          </ul>
-        </nav>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>西川建設工業</title>
+    <link rel="stylesheet" href="css/phone.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Yomogi&display=swap" rel="stylesheet">
+  </head>
+  <body>
+
+    <!-- ヘッダー -->
+    <nav class="navbar" style="border-top: 5px solid #000000;">
+      <div class="logo"><a href="index-mobile.html" style="text-decoration: none;">西川建設工業</a></div>
+      <div class="menu-toggle" id="menuToggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
       </div>
-    </div>
-  </header>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index-mobile.html">ホーム</a></li>
+        <li><a href="about-mobile.html">会社案内</a></li>
+        <li><a href="Construction-mobile.html">施工事例</a></li>
+        <li><a href="recruit-mobile.html">採用情報</a></li>
+        <li><a href="contact-mobile.html">お問い合わせ</a></li>
+      </ul>
+    </nav>
+    <script src="js/script.js"></script>
 
-  <!-- 確認画面セクション -->
-  <section>
-    <div class="page_title_contact">
-      <h2>確認画面<br>
-      <span>Confirm</span></h2>
-    </div>
-  </section>
+    <!-- 確認画面セクション -->
+    <section>
+      <div class="page_title_contact">
+        <h2>確認画面<br>
+        <span>Confirm</span></h2>
+      </div>
+    </section>
 
-  <section class="confirmation-details">
-    <div>
-      <p>以下の内容でよろしければ、送信ボタンをクリックしてください。</p>
-      <p><strong>お名前:</strong> <span id="confirm-name"></span></p>
-      <p><strong>メールアドレス:</strong> <span id="confirm-email"></span></p>
-      <p><strong>電話番号:</strong> <span id="confirm-phone"></span></p>
-      <p><strong>お問い合わせ内容:</strong> <span id="confirm-message"></span></p>
-    </div>
+    <section class="confirmation-details">
+      <div>
+        <p>以下の内容でよろしければ、送信ボタンをクリックしてください。</p>
+        <p><strong>お名前:</strong> <span id="confirm-name"></span></p>
+        <p><strong>メールアドレス:</strong> <span id="confirm-email"></span></p>
+        <p><strong>電話番号:</strong> <span id="confirm-phone"></span></p>
+        <p><strong>お問い合わせ内容:</strong> <span id="confirm-message"></span></p>
+      </div>
 
-    <form id="contact-form" action="https://formspree.io/f/xwpvvjkq" method="POST">
-      <input type="hidden" name="name" id="confirm-name-input">
-      <input type="hidden" name="_replyto" id="confirm-email-input">
-      <input type="hidden" name="phone" id="confirm-phone-input">
-      <input type="hidden" name="message" id="confirm-message-input">
-      <button type="submit" class="cta-button">送信する</button>
-    </form>
-    <a href="contact.html" class="cta-button">修正する</a>
+      <form id="contact-form" action="https://formspree.io/f/xwpvvjkq" method="POST">
+        <input type="hidden" name="name" id="confirm-name-input">
+        <input type="hidden" name="_replyto" id="confirm-email-input">
+        <input type="hidden" name="phone" id="confirm-phone-input">
+        <input type="hidden" name="message" id="confirm-message-input">
+        <button type="submit" class="cta-button">送信する</button>
+      </form>
+      <a href="contact-mobile.html" class="cta-button">修正する</a>
 
-    <div id="response-message" style="margin-top: 20px; font-weight: bold;"></div>
-  </section>
+      <div id="response-message" style="margin-top: 20px; font-weight: bold;"></div>
+    </section>
 
-  <footer>
-    <p>&copy; 2024 西川建設工業 | All Rights Reserved</p>
-  </footer>
+    <footer>
+      <p>&copy; 2024 西川建設工業 | All Rights Reserved</p>
+    </footer>
 
-  <script>
-    window.onload = function () {
-      // URLのクエリパラメータを取得
-      const urlParams = new URLSearchParams(window.location.search);
-      const name = urlParams.get('name') || '';
-      const email = urlParams.get('email') || '';
-      const phone = urlParams.get('phone') || '';
-      const message = urlParams.get('message') || '';
-  
-      // 表示する
-      document.getElementById('confirm-name').textContent = name;
-      document.getElementById('confirm-email').textContent = email;
-      document.getElementById('confirm-phone').textContent = phone;
-      document.getElementById('confirm-message').textContent = message;
-  
-      // 隠しフィールドにデータを設定
-      document.getElementById('confirm-name-input').value = name;
-      document.getElementById('confirm-email-input').value = email;
-      document.getElementById('confirm-phone-input').value = phone;
-      document.getElementById('confirm-message-input').value = message;
-    };
+    <script>
+      window.onload = function () {
+        // URLのクエリパラメータを取得
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('name') || '';
+        const email = urlParams.get('email') || '';
+        const phone = urlParams.get('phone') || '';
+        const message = urlParams.get('message') || '';
 
-    // フォーム送信時の処理
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-      event.preventDefault(); // フォーム送信のデフォルト動作を停止
+        // 表示する
+        document.getElementById('confirm-name').textContent = name;
+        document.getElementById('confirm-email').textContent = email;
+        document.getElementById('confirm-phone').textContent = phone;
+        document.getElementById('confirm-message').textContent = message;
 
-      // フォームデータを取得
-      const formData = new FormData(this);
+        // 隠しフィールドにデータを設定
+        document.getElementById('confirm-name-input').value = name;
+        document.getElementById('confirm-email-input').value = email;
+        document.getElementById('confirm-phone-input').value = phone;
+        document.getElementById('confirm-message-input').value = message;
+      };
 
-      // Formspreeにデータを送信
-      fetch('https://formspree.io/f/xwpvvjkq', {
-        method: 'POST',
-        body: formData,
-        redirect: 'manual', // リダイレクトを追跡しない
-      })
-      .then(response => response.text())  // レスポンスをテキストとして処理
-      .then(data => {
-        console.log(data);  // レスポンス内容をログで確認
-        const messageElement = document.getElementById('response-message');
-        if (response.ok) {
-          messageElement.style.color = 'green';
-          messageElement.textContent = '送信が成功しました。お問い合わせありがとうございました。';
-        } else {
+      // フォーム送信時の処理
+      document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // フォーム送信のデフォルト動作を停止
+
+        // フォームデータを取得
+        const formData = new FormData(this);
+
+        // Formspreeにデータを送信
+        fetch('https://formspree.io/f/xwpvvjkq', {
+          method: 'POST',
+          body: formData,
+          redirect: 'manual', // リダイレクトを追跡しない
+        })
+        .then(response => {
+          const messageElement = document.getElementById('response-message');
+          if (response.ok) {
+            messageElement.style.color = 'green';
+            messageElement.textContent = '送信が成功しました。お問い合わせありがとうございました。';
+          } else {
+            messageElement.style.color = 'red';
+            messageElement.textContent = '送信に失敗しました。再度お試しください。';
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          const messageElement = document.getElementById('response-message');
           messageElement.style.color = 'red';
           messageElement.textContent = '送信に失敗しました。再度お試しください。';
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        const messageElement = document.getElementById('response-message');
-        messageElement.style.color = 'red';
-        messageElement.textContent = '送信に失敗しました。再度お試しください。';
+        });
       });
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>
