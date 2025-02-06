@@ -157,6 +157,12 @@ footer {
   padding: 10px 0;
 }
 
+@media (max-width: 768px) {
+  .page_title_about{
+    background-position: 0px !important;
+  }
+}
+
 .page_title_about h2{
   text-align: center;
   font-size: 3rem;
@@ -179,6 +185,12 @@ footer {
   background-position: center -580px;
   background-size: cover;
   padding: 10px 0;
+}
+
+@media (max-width: 768px) {
+  .page_title_construction{
+    background-position: 0px !important;
+  } 
 }
 
 .page_title_construction h2{
@@ -205,6 +217,12 @@ footer {
   padding: 10px 0;
 }
 
+@media (max-width: 768px) {
+  .page_title_recruit{
+    background-position: 0px !important;
+  }
+}
+
 .page_title_recruit h2{
   text-align: center;
   font-size: 3rem;
@@ -227,6 +245,12 @@ footer {
   background-position: center -400px;
   background-size: cover;
   padding: 10px 0;
+}
+
+@media (max-width: 768px) {
+  .page_title_contact{
+    background-position: center 0px !important;
+  }
 }
 
 .page_title_contact h2{
