@@ -2,7 +2,7 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>西川建設工業</title>
     <link rel="stylesheet" href="css/phone.css">
     <link rel="stylesheet" href="css/style.css">
@@ -98,7 +98,7 @@
         </span>
       </div>
       <div id="contactWeb">
-        <img class="mailimg" src="https://raw.githubusercontent.com/nishikawakensetu/ConstructionExample/refs/heads/main/%E3%82%B7%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AA%E3%83%A1%E3%83%BC%E3%83%AB%E3%81%AE%E3%82%A2%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3%E7%B4%A0%E6%9D%90%202.png">
+        <img class="mailimg" src="https://raw.githubusercontent.com/nishikawakensetu/ConstructionExample/refs/heads/main/%E3%82%B7%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AA%E3%83%A1%E3%83%BC%E3%83%AB%E3%81%AE%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3%E7%B4%A0%E6%9D%90%202.png">
         <p class="tcenter b-m5 color01 bold">お問い合わせフォームはこちら</p>
         <p class="btn01">
           <a href="contact-mobile.html">
@@ -136,7 +136,6 @@
     }
   </style>
 
-
   <!-- フッター -->
   <footer>
     <p>&copy; 2024 西川建設工業 | All Rights Reserved</p>
@@ -157,8 +156,18 @@
       const url = `confirm-mobile.html?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&message=${encodeURIComponent(message)}`;
       window.location.href = url; // confirm.htmlに遷移
     };
+
+    // ページロード時にクエリパラメータから値を復元
+    window.onload = function() {
+      const urlParams = new URLSearchParams(window.location.search);
+
+      // 各入力フィールドにクエリパラメータの値を設定
+      document.getElementById('name').value = urlParams.get('name') || '';
+      document.getElementById('email').value = urlParams.get('email') || '';
+      document.getElementById('phone').value = urlParams.get('phone') || '';
+      document.getElementById('message').value = urlParams.get('message') || '';
+    };
   </script>
-  
   
 </body>
 </html>
