@@ -10,9 +10,20 @@
 </head>
 <body>
 
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // スマホ端末かどうかを判定
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      if (isMobile) {
+        // index-mobile.html へリダイレクト
+        window.location.href = "index-mobile.html";
+      }
+    });
+  </script>
+
   <!-- ヘッダー -->
   <nav class="navbar" style="border-top: 5px solid #000000;">
-    <div class="logo"><a href="index-mobile.html" style="text-decoration: none;">有限会社西川建設工業</a></div>
+    <div class="logo"><a href="index-mobile.html" style="text-decoration: none;">西川建設工業</a></div>
     <div class="menu-toggle" id="menuToggle">
       <span class="bar"></span>
       <span class="bar"></span>
@@ -44,7 +55,7 @@
 <section class="CompanyExplanation">
   <div class="CompanyInfo">
     <p class="b-color-m20">
-      有限会社西川建設工業は、徳島県・香川県を拠点に土木工事・建築工事を元請けおよび下請けとして手掛けています。<br>
+      西川建設工業は、徳島県・香川県を拠点に土木工事・建築工事を元請けおよび下請けとして手掛けています。<br>
       型枠工事や仮設足場の設置にも注力し、安全性を重視した高品質な施工を提供しています。地域社会に密着した企業として、信頼されるパートナーであり続けるため、全社員が一丸となって取り組んでいます。
     </p>
   </div>
