@@ -817,9 +817,8 @@
   
     .view-more {
       color: #dd4d4d !important;
-      font-size: 16px !important; /* フォントサイズを少し小さく */
       border: 1px solid #dd4d4d !important;
-      margin: 10px 250px !important; /* ボタンのマージンを調整 */
+      margin: 10px 200px !important; /* ボタンのマージンを調整 */
     }
 
     .view-more a {
