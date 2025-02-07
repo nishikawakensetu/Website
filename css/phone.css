@@ -821,6 +821,10 @@
       border: 1px solid #dd4d4d !important;
       margin: 10px 250px !important; /* ボタンのマージンを調整 */
     }
+
+    .view-more a {
+      color: #dd4d4d !important;
+    }
     
     .view-more a:visited {
       color: #dd4d4d !important;
