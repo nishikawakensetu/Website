@@ -186,7 +186,15 @@
     });
   });
 </script>
-
+<script>
+  // スマホかどうかを判定
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    // スマホならindex-mobile.htmlにリダイレクト
+    if (location.pathname !== '/index-mobile.html') {
+      window.location.href = 'index-mobile.html';
+    }
+  }
+</script>
   <!-- フッター -->
   <footer>
     <p>&copy; 2024 西川建設工業 | All Rights Reserved</p>
