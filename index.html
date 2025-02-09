@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+      <script>
+      // スマホリダイレクト判定
+      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        if (location.pathname !== '/index-mobile.html') {
+          window.location.href = 'index-mobile.html';
+        }
+      }
+    </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="西川建設工業の公式サイト。土木建設の施工事例やお問い合わせ情報をご覧ください。">
@@ -189,15 +197,7 @@
     });
   });
 </script>
-<script>
-  // スマホかどうかを判定
-  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    // スマホならindex-mobile.htmlにリダイレクト
-    if (location.pathname !== '/index-mobile.html') {
-      window.location.href = 'index-mobile.html';
-    }
-  }
-</script>
+  
   <!-- フッター -->
   <footer>
     <p>&copy; 2024 西川建設工業 | All Rights Reserved</p>
