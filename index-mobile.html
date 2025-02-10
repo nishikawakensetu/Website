@@ -13,15 +13,20 @@
   <script>
 document.addEventListener("DOMContentLoaded", function () {
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-  const currentUrl = window.location.href; // 現在の完全なURLを取得
-  const redirectUrl = window.location.origin + "/index-mobile.html"; // リダイレクト先URL
+  const currentUrl = window.location.href;
+  const redirectUrl = "https://nishikawakensetu.github.io/index-mobile.html"; // 必要に応じてリポジトリ名を含める
 
-  // 現在のURLがリダイレクト先と一致しない場合のみリダイレクト
+  console.log("Current URL:", currentUrl);
+  console.log("Redirect URL:", redirectUrl);
+  console.log("Is mobile:", isMobile);
+
   if (isMobile && currentUrl !== redirectUrl) {
+    console.log("Redirecting to mobile page...");
     window.location.href = redirectUrl;
+  } else {
+    console.log("No redirection needed.");
   }
 });
-
   </script>
 
   <!-- ヘッダー -->
