@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  const currentUrl = window.location.href;
+  const redirectUrl = "https://nishikawakensetu.github.io/index-mobile.html"; // 必要に応じてリポジトリ名を含める
+
+  console.log("Current URL:", currentUrl);
+  console.log("Redirect URL:", redirectUrl);
+  console.log("Is mobile:", isMobile);
+
+  if (isMobile && currentUrl !== redirectUrl) {
+    console.log("Redirecting to mobile page...");
+    window.location.href = redirectUrl;
+  } else {
+    console.log("No redirection needed.");
+  }
+});
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>環境への取り組み | 西川建設工業</title>
