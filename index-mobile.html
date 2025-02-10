@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1>">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>西川建設工業</title>
   <link rel="stylesheet" href="css/phone.css">
   <link rel="stylesheet" href="css/style.css">
@@ -11,14 +11,14 @@
 <body>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      // スマホ端末かどうかを判定
-      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-      if (isMobile) {
-        // index-mobile.html へリダイレクト
-        window.location.href = "index-mobile.html";
-      }
-    });
+document.addEventListener("DOMContentLoaded", function () {
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  const currentPage = window.location.pathname.split('/').pop(); // 現在のページ名を取得
+
+  if (isMobile && currentPage !== "index-mobile.html") {
+    window.location.href = "index-mobile.html";
+  }
+});
   </script>
 
   <!-- ヘッダー -->
