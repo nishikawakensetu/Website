@@ -2,11 +2,14 @@
 <html lang="ja">
 <head>
 
-<script>
-  if (window.innerWidth <= 768) {
-    window.location.href = 'https://nishikawakensetu.github.io/Website/index-mobile.html'; // スマホ画面のURLにリダイレクト
-  }
-</script>
+    <script>
+      // スマホリダイレクト判定
+      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        if (location.pathname !== '/index-mobile.html') {
+          window.location.href = 'index-mobile.html';
+        }
+      }
+    </script>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
