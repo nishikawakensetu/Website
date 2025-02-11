@@ -2,18 +2,14 @@
 <html lang="ja">
 <head>
   
-<script>
-  // クエリパラメータに `?view=pc` がない場合にリダイレクト
-  const urlParams = new URLSearchParams(window.location.search);
-  const viewParam = urlParams.get('view');
-
-  if (viewParam !== 'pc') { // view=pcでない場合にリダイレクト処理
-    if (window.innerWidth <= 768) {
-      // スマホ画面へリダイレクト
-      location.href = 'Construction-mobile.html';
-    }
-  }
-</script>
+    <script>
+      // スマホリダイレクト判定
+      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        if (location.pathname !== '/Construction-mobile.html') {
+          window.location.href = 'Construction-mobile.html';
+        }
+      }
+    </script>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
