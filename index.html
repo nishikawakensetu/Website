@@ -1,22 +1,17 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<script>
-  // モバイル判定用関数
-  function isMobileDevice() {
-    return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-  }
 
-  // 現在のURL
-  const currentUrl = window.location.href;
-  const redirectUrl = "https://nishikawakensetu.github.io/Website/index-mobile.html";
-
-  // モバイル端末の場合リダイレクト
-  if (isMobileDevice() && currentUrl !== redirectUrl) {
-    console.log("Redirecting to mobile page...");
-    window.location.href = redirectUrl;
+  <script>
+  // URLに `?view=pc` が付いている場合、リダイレクトをスキップ
+  if (!location.search.includes('view=pc')) {
+    if (window.innerWidth <= 768) {
+      // スマホ画面にリダイレクト
+      location.href = 'about-mobile.html';
+    }
   }
 </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="西川建設工業の公式サイト。土木建設の施工事例やお問い合わせ情報をご覧ください。">
