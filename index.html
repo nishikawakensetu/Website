@@ -4,22 +4,37 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    // クエリパラメータに view=pc が含まれているか確認
+    // クエリパラメータを取得
     const urlParams = new URLSearchParams(window.location.search);
     const viewParam = urlParams.get('view');
 
+    console.log("クエリパラメータ:", viewParam);
+    console.log("ウィンドウ幅:", window.innerWidth);
+
     // クエリパラメータが view=pc でない場合
     if (viewParam !== 'pc') {
-      // ウィンドウ幅が 768px 以下であればスマホ画面にリダイレクト
+      console.log("view=pcではありません");
+
+      // ウィンドウ幅が 768px 以下の場合
       if (window.innerWidth <= 768) {
-        // 現在のページがスマホ用画面でなければリダイレクト
+        console.log("ウィンドウ幅が768px以下です");
+
+        // 現在のページがスマホ用画面でない場合
         if (!location.href.includes('index-mobile.html')) {
+          console.log("現在スマホ用画面ではないのでリダイレクトします");
           location.href = 'index-mobile.html?view=mobile';
+        } else {
+          console.log("すでにスマホ用画面です");
         }
+      } else {
+        console.log("ウィンドウ幅が768pxより大きいのでリダイレクトしません");
       }
+    } else {
+      console.log("view=pcが指定されています");
     }
   });
 </script>
+
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
