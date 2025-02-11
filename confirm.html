@@ -3,10 +3,13 @@
 <head>
   
 <script>
-  // URLに `?view=pc` が付いている場合、リダイレクトをスキップ
-  if (!location.search.includes('view=pc')) {
+  // クエリパラメータに `?view=pc` がない場合にリダイレクト
+  const urlParams = new URLSearchParams(window.location.search);
+  const viewParam = urlParams.get('view');
+
+  if (viewParam !== 'pc') { // view=pcでない場合にリダイレクト処理
     if (window.innerWidth <= 768) {
-      // スマホ画面にリダイレクト
+      // スマホ画面へリダイレクト
       location.href = 'confirm-mobile.html';
     }
   }
