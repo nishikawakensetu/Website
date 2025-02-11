@@ -3,16 +3,22 @@
 <head>
 
 <script>
-  // クエリパラメータに `?view=pc` がない場合にリダイレクト
-  const urlParams = new URLSearchParams(window.location.search);
-  const viewParam = urlParams.get('view');
+  // ページが完全に読み込まれた後にスクリプトを実行
+  document.addEventListener("DOMContentLoaded", function () {
+    // クエリパラメータに `?view=pc` が付いているか確認
+    const urlParams = new URLSearchParams(window.location.search);
+    const viewParam = urlParams.get('view');
 
-  if (viewParam !== 'pc') { // view=pcでない場合にリダイレクト処理
-    if (window.innerWidth <= 768) {
-      // スマホ画面へリダイレクト
-      location.href = 'index-mobile.html';
+    // `view=pc` がない場合、スマホサイズのときにリダイレクト
+    if (viewParam !== 'pc') {
+      if (window.innerWidth <= 768) {
+        // 現在のURLがスマホ画面でない場合のみリダイレクト
+        if (!location.href.includes('about-mobile.html')) {
+          location.href = 'about-mobile.html';
+        }
+      }
     }
-  }
+  });
 </script>
 
   <meta charset="UTF-8">
