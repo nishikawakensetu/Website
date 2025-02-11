@@ -1,22 +1,17 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+  
 <script>
-  // モバイル判定用関数
-  function isMobileDevice() {
-    return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  // URLに `?view=pc` が付いている場合、リダイレクトをスキップ
+  if (!location.search.includes('view=pc')) {
+    if (window.innerWidth <= 768) {
+      // スマホ画面にリダイレクト
+      location.href = 'confirm-mobile.html';
+    }
   }
+</script>
 
-  // 現在のURL
-  const currentUrl = window.location.href;
-  const redirectUrl = "https://nishikawakensetu.github.io/Website/confirm-mobile.html";
-
-  // モバイル端末の場合リダイレクト
-  if (isMobileDevice() && currentUrl !== redirectUrl) {
-    console.log("Redirecting to mobile page...");
-    window.location.href = redirectUrl;
-  }
-      </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>お問い合わせ | 西川建設工業</title>
