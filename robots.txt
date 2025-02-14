@@ -1,6 +1,0 @@
-# すべての検索エンジンに対してクロールを許可
-User-agent: *
-Disallow: /private/
-
-# サイトマップの場所を指定
-Sitemap: https://nishikawakensetu.github.io/Website/sitemap.xml
