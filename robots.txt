@@ -1,4 +1,3 @@
 User-agent: *
 Disallow:
-
 Sitemap: https://nishikawakensetu.github.io/Website/sitemap.xml
