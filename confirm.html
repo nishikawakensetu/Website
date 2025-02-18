@@ -166,8 +166,11 @@
 
 
   <!-- フッター -->
-  <footer>
-    <p>&copy; 2024 西川建設工業 | All Rights Reserved</p>
-  </footer>
+<footer>
+  <p>&copy; <span id="year"></span> 有限会社西川建設工業 | All Rights Reserved</p>
+</footer>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
