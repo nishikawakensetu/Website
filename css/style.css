@@ -1515,6 +1515,7 @@ canvas {
   #contacTel, #contactWeb {
     width: 330px !important;
     text-align: center;
+    border-right: none;
   }
 
   .page_top a {
