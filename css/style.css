@@ -900,13 +900,14 @@ ul.gallery .arrow {
 
 .img-04{
   background-image: url('https://raw.githubusercontent.com/nishikawakensetu/Website/refs/heads/main/images/slide4.JPG');
-  background-position: center top !important;
+  background-position: center -400px;
   animation: slide-animation-04 24s infinite;
 }
 
 /* スマホ用 */
 @media (max-width: 768px) {
   .img-04 {
+  background-position: center top !important;
   animation: slide-animation-04 24s infinite;
   }
 }
