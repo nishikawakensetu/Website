@@ -818,7 +818,7 @@
     .view-more {
       color: #dd4d4d !important;
       border: 1px solid #dd4d4d !important;
-      margin: 10px 200px !important; /* ボタンのマージンを調整 */
+      margin: auto !important; /* ボタンのマージンを調整 */
     }
 
     .view-more a {
