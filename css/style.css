@@ -907,7 +907,7 @@ ul.gallery .arrow {
 /* スマホ用 */
 @media (max-width: 768px) {
   .img-04 {
-  background-position: center -100px !important; /* スマホ用の位置調整 */
+  background-position: center top !important; /* スマホ用の位置調整 */
   animation: slide-animation-04 24s infinite;
   }
 }
