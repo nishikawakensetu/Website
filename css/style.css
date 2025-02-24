@@ -849,7 +849,7 @@ ul.gallery .arrow {
   padding: 8px 0;
 }
 
-.img-frame{
+.img-frame {
   position: relative;
   width: 100%;
   height: 700px;
@@ -857,73 +857,78 @@ ul.gallery .arrow {
   margin: 0 auto;
 }
 
-.img-01{
+/* 各画像の順番を固定するために z-index を指定 */
+.img-01 { 
+  z-index: 5;
   background-image: url('https://raw.githubusercontent.com/nishikawakensetu/Website/refs/heads/main/images/slide1.JPG');
   background-position: center -600px;
   animation: slide-animation-01 24s infinite;
 }
 
-/* スマホ用 */
-@media (max-width: 768px) {
-  .img-01 {
-    animation: slide-animation-01 20s infinite;
-    background-position: center top !important; /* スマホ用の位置調整 */
-  }
-}
-
-.img-02{
+.img-02 { 
+  z-index: 4;
   background-image: url('https://raw.githubusercontent.com/nishikawakensetu/Website/refs/heads/main/images/slide5.JPG');
   background-position: center -300px;
   animation: slide-animation-02 24s infinite;
 }
 
-@media (max-width: 768px) {
-  .img-02 {
-  background-position: center top !important; /* スマホ用の位置調整 */
-  animation: slide-animation-02 24s infinite;
-  }
-}
-
-.img-03{
+.img-03 { 
+  z-index: 3;
   background-image: url('https://raw.githubusercontent.com/nishikawakensetu/Website/refs/heads/main/images/eguchiokumurasen/sekougo2.JPG');
   background-position: center -200px;
   animation: slide-animation-03 24s infinite;
 }
 
-/* スマホ用 */
-@media (max-width: 768px) {
-  .img-03 {
-  background-position: center top !important;
-  animation: slide-animation-03 24s infinite;
-  }
-}
-
-.img-04{
+.img-04 { 
+  z-index: 2;
   background-image: url('https://raw.githubusercontent.com/nishikawakensetu/Website/refs/heads/main/images/slide4.JPG');
   background-position: center -400px;
   animation: slide-animation-04 24s infinite;
 }
 
-/* スマホ用 */
-@media (max-width: 768px) {
-  .img-04 {
-  background-position: center top !important;
-  animation: slide-animation-04 24s infinite;
-  }
-}
-
-.img-05{
+.img-05 { 
+  z-index: 1;
   background-image: url('https://raw.githubusercontent.com/nishikawakensetu/Website/refs/heads/main/images/kajiyasikihakunaisenn/sekougo.JPG');
   animation: slide-animation-05 24s infinite;
 }
 
+/* PC用共通設定 */
+.img-01, .img-02, .img-03, .img-04, .img-05 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation-timing-function: ease;
+}
+
+/* スマホ用設定 */
 @media (max-width: 768px) {
+  .img-01 {
+    animation: slide-animation-01 24s infinite;
+    background-position: center top !important;
+  }
+  .img-02 {
+    animation: slide-animation-02 24s infinite;
+    background-position: center top !important;
+  }
+  .img-03 {
+    animation: slide-animation-03 24s infinite;
+    background-position: center top !important;
+  }
+  .img-04 {
+    animation: slide-animation-04 24s infinite;
+    background-position: center top !important;
+  }
   .img-05 {
-  background-position: center top !important; /* スマホ用の位置調整 */
-  animation: slide-animation-05 24s infinite;
+    animation: slide-animation-05 24s infinite;
+    background-position: center top !important;
   }
 }
 
+/* キーフレーム定義 */
 @keyframes slide-animation-01 {
   0%   { opacity: 0; transform: scale(1.15); }
   4%   { opacity: 1; transform: scale(1.0); }
@@ -965,6 +970,7 @@ ul.gallery .arrow {
   92%   { opacity: 1; transform: scale(1.0); }
   100%  { opacity: 1; transform: scale(1.0); }
 }
+
 
 .img-01, .img-02, .img-03, .img-04, .img-05{
   position: absolute;
