@@ -270,7 +270,7 @@ footer {
 
 /* 環境 */
 .page_title_sbt{
-  background: url('https://raw.githubusercontent.com/nishikawakensetu/Website/refs/heads/main/images/slide1.JPG') no-repeat center;
+  background: url(https://raw.githubusercontent.com/nishikawakensetu/Website/refs/heads/main/images/slide1.JPG) no-repeat center;
   height: 300px;
   background-position: center -800px;
   background-size: cover;
