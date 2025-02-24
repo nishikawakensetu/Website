@@ -867,7 +867,7 @@ ul.gallery .arrow {
 @media (max-width: 768px) {
   .img-01 {
     animation: slide-animation-01 20s infinite;
-    background-position: center -100px !important; /* スマホ用の位置調整 */
+    background-position: center top !important; /* スマホ用の位置調整 */
   }
 }
 
@@ -900,7 +900,7 @@ ul.gallery .arrow {
 
 .img-04{
   background-image: url('https://raw.githubusercontent.com/nishikawakensetu/Website/refs/heads/main/images/slide4.JPG');
-  background-position: center -500px !important;
+  background-position: center -200px !important;
   animation: slide-animation-04 24s infinite;
 }
 
