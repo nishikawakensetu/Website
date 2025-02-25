@@ -874,7 +874,7 @@ ul.gallery .arrow {
 .img-03 { 
   z-index: 3;
   background-image: url('https://raw.githubusercontent.com/nishikawakensetu/Website/refs/heads/main/images/RIMG2645.JPG');
-  background-position: center -500px;
+  background-position: center -550px;
   animation: slide-animation-03 24s infinite;
 }
 
