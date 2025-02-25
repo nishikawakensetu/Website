@@ -881,7 +881,7 @@ ul.gallery .arrow {
 .img-04 { 
   z-index: 2;
   background-image: url('https://raw.githubusercontent.com/nishikawakensetu/Website/refs/heads/main/images/slide4.JPG');
-  background-position: center -400px;
+  background-position: center -700px;
   animation: slide-animation-04 24s infinite;
 }
 
