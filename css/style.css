@@ -874,14 +874,14 @@ ul.gallery .arrow {
 .img-03 { 
   z-index: 3;
   background-image: url('https://raw.githubusercontent.com/nishikawakensetu/Website/refs/heads/main/images/RIMG2645.JPG');
-  background-position: center -200px;
+  background-position: center -500px;
   animation: slide-animation-03 24s infinite;
 }
 
 .img-04 { 
   z-index: 2;
   background-image: url('https://raw.githubusercontent.com/nishikawakensetu/Website/refs/heads/main/images/slide4.JPG');
-  background-position: center -700px;
+  background-position: center -400px;
   animation: slide-animation-04 24s infinite;
 }
 
