@@ -26,7 +26,6 @@
       <li><a href="contact-mobile.html">お問い合わせ</a></li>
     </ul>
   </nav>
-  <script src="js/script.js"></script>
 
   <!-- お問い合わせヘッダーセクション -->
   <section>
@@ -58,7 +57,7 @@
         <label for="message">お問い合わせ内容</label>
         <textarea id="message" name="message" rows="4" required></textarea>
 
-        <!-- ボタンをsubmitからbuttonに変更 -->
+        <!-- 修正: ボタンをsubmitからbuttonに変更 -->
         <button type="button" id="confirmButton" class="cta-button">確認画面へ</button>
       </form>
     </div>
@@ -81,37 +80,16 @@
       const form = document.getElementById('contactForm');
       const formData = new FormData(form);
 
-      // ローカルストレージに保存
+      // クエリパラメータにデータを設定して確認画面に遷移
+      const params = new URLSearchParams();
       formData.forEach((value, key) => {
-        localStorage.setItem(key, value);
+        params.append(key, value);
       });
 
       // 確認画面へ遷移
-      window.location.href = "confirm.html";
+      window.location.href = `confirm-mobile.html?${params.toString()}`;
     });
   </script>
-
-  <!-- スタイル -->
-  <style>
-    .page_top {
-      clear: both;
-      width: 100%;
-    }
-    .page_top a {
-      display: block;
-      text-align: center;
-      color: #fff;
-      padding: 35px 0 15px 0;
-      background: url(https://raw.githubusercontent.com/nishikawakensetu/Website/refs/heads/main/images/%E7%9F%A2%E5%8D%B0.png) #483b8c center 20px no-repeat;
-      background-size: 13px;
-      transition: all 0.3s ease-in-out 0s;
-      text-decoration: none;
-    }
-    .page_top a:hover {
-      background: url(https://raw.githubusercontent.com/nishikawakensetu/Website/refs/heads/main/images/%E7%9F%A2%E5%8D%B0.png) #695ab9 center 19px no-repeat;
-      background-size: 13px;
-    }
-  </style>
 
 </body>
 </html>
