@@ -73,23 +73,22 @@
   </footer>
   
   <!-- JavaScript -->
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+<script>
+  document.getElementById('confirmButton').addEventListener('click', function () {
+    const form = document.getElementById('contactForm');
+    const formData = new FormData(form);
 
-    // 確認画面への遷移処理
-    document.getElementById('confirmButton').addEventListener('click', function () {
-      const form = document.getElementById('contactForm');
-      const formData = new FormData(form);
+    // フォームデータをクエリパラメータとしてURLに渡す
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const phone = formData.get('phone');
+    const message = formData.get('message');
 
-      // ローカルストレージに保存
-      formData.forEach((value, key) => {
-        localStorage.setItem(key, value);
-      });
-
-      // 確認画面へ遷移
-      window.location.href = "confirm.html";
-    });
-  </script>
+    // 確認画面へ遷移、クエリパラメータとして送信
+    const url = `confirm.html?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&message=${encodeURIComponent(message)}`;
+    window.location.href = url;
+  });
+</script>
 
   <!-- スタイル -->
   <style>
