@@ -58,7 +58,7 @@
         <label for="message">お問い合わせ内容</label>
         <textarea id="message" name="message" rows="4" required></textarea>
 
-        <!-- 修正: ボタンをsubmitからbuttonに変更 -->
+        <!-- ボタンをsubmitからbuttonに変更 -->
         <button type="button" id="confirmButton" class="cta-button">確認画面へ</button>
       </form>
     </div>
@@ -73,22 +73,23 @@
   </footer>
   
   <!-- JavaScript -->
-<script>
-  document.getElementById('confirmButton').addEventListener('click', function () {
-    const form = document.getElementById('contactForm');
-    const formData = new FormData(form);
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    // フォームデータをクエリパラメータとしてURLに渡す
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const phone = formData.get('phone');
-    const message = formData.get('message');
+    // 確認画面への遷移処理
+    document.getElementById('confirmButton').addEventListener('click', function () {
+      const form = document.getElementById('contactForm');
+      const formData = new FormData(form);
 
-    // 確認画面へ遷移、クエリパラメータとして送信
-    const url = `confirm.html?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&message=${encodeURIComponent(message)}`;
-    window.location.href = url;
-  });
-</script>
+      // ローカルストレージに保存
+      formData.forEach((value, key) => {
+        localStorage.setItem(key, value);
+      });
+
+      // 確認画面へ遷移
+      window.location.href = "confirm.html";
+    });
+  </script>
 
   <!-- スタイル -->
   <style>
