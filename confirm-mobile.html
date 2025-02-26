@@ -6,6 +6,7 @@
   <title>確認画面 | 有限会社西川建設工業</title>
   <link rel="stylesheet" href="css/phone.css">
   <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Yomogi&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -34,7 +35,7 @@
         <span>Confirm</span>
       </h3>
       <p>以下の内容でよろしいですか？</p>
-      <div>
+      <div class="confirm-details">
         <p><strong>お名前:</strong> <span id="name"></span></p>
         <p><strong>メールアドレス:</strong> <span id="email"></span></p>
         <p><strong>電話番号:</strong> <span id="phone"></span></p>
@@ -70,14 +71,5 @@
       window.location.href = "thank_you.html"; // 完了画面に遷移
     });
   </script>
-
-  <!-- スタイル -->
-  <style>
-    .button-container {
-      margin-top: 20px;
-      display: flex;
-      gap: 10px;
-    }
-  </style>
 </body>
 </html>
