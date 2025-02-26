@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>確認画面 | 有限会社西川建設工業</title>
   <link rel="stylesheet" href="css/phone.css">
   <link rel="stylesheet" href="css/style.css">
@@ -12,7 +12,7 @@
 
   <!-- ヘッダー -->
   <nav class="navbar" style="border-top: 5px solid #000000;">
-    <div class="logo"><a href="index-mobile.html" style="text-decoration: none;">有限会社西川建設工業</a></div>
+    <div class="logo"><a href="index-mobile.html" style="text-decoration: none; padding-left: 0px;">有限会社西川建設工業</a></div>
     <div class="menu-toggle" id="menuToggle">
       <span class="bar"></span>
       <span class="bar"></span>
@@ -27,49 +27,104 @@
     </ul>
   </nav>
   <script src="js/script.js"></script>
+  
+  <!-- 確認画面セクション -->
+  <section>
+    <div class="page_title_contact">
+      <h2>確認画面<br>
+      <span>Confirm</span></h2>
+    </div>
+  </section>
 
-  <!-- 確認画面 -->
-  <section class="contact-content">
-    <div class="container">
-      <h3>確認画面
-        <span>Confirm</span>
+  <section class="confirmation-details">
+    <div>
+      <p>以下の内容でよろしければ、送信ボタンをクリックしてください。</p>
+      <p><strong>お名前:</strong> <span id="confirm-name"></span></p>
+      <p><strong>メールアドレス:</strong> <span id="confirm-email"></span></p>
+      <p><strong>電話番号:</strong> <span id="confirm-phone"></span></p>
+      <p><strong>お問い合わせ内容:</strong> <span id="confirm-message"></span></p>
+    </div>
+
+    <form id="contact-form" action="https://formspree.io/f/xwpvvjkq" method="POST">
+      <input type="hidden" name="name" id="confirm-name-input">
+      <input type="hidden" name="_replyto" id="confirm-email-input">
+      <input type="hidden" name="phone" id="confirm-phone-input">
+      <input type="hidden" name="message" id="confirm-message-input">
+      <button type="submit" class="cta-button">送信する</button>
+    </form>
+    <a href="contact-mobile.html" class="cta-button">修正する</a>
+
+    <div id="response-message" style="margin-top: 20px; font-weight: bold;"></div>
+  </section>
+
+  <section class="contactbutton">
+    <div class="contacBox clearfix">
+      <h2 class="mtitle-contact">
+        Contact
+        <span>お問い合わせ</span>
+      </h2>
+      <h3 class="contacTitle">
+        ご質問やご相談など
+        <br class="spbr">
+        お気軽にご相談ください。
       </h3>
-      <p>以下の内容でよろしいですか？</p>
-      <div class="confirm-details">
-        <p><strong>お名前:</strong> <span id="name"></span></p>
-        <p><strong>メールアドレス:</strong> <span id="email"></span></p>
-        <p><strong>電話番号:</strong> <span id="phone"></span></p>
-        <p><strong>お問い合わせ内容:</strong> <span id="message"></span></p>
+      <div id="contacTel">
+        <p id="number">
+          TEL：0883-82-5137
+        </p>
+        <span>
+          営業時間 ／ 8:00～17:00
+          <br>
+          定休日 ／ 日曜日
+        </span>
       </div>
-
-      <!-- ボタン -->
-      <div class="button-container">
-        <button onclick="history.back()" class="cta-button">戻る</button>
-        <button id="sendButton" class="cta-button">送信する</button>
+      <div id="contactWeb">
+        <img class="mailimg" src="https://raw.githubusercontent.com/nishikawakensetu/ConstructionExample/refs/heads/main/%E3%82%B7%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AA%E3%83%A1%E3%83%BC%E3%83%AB%E3%81%AE%E3%82%A2%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3%E7%B4%A0%E6%9D%90%202.png">
+        <p class="tcenter b-m5 color01 bold">お問い合わせフォームはこちら</p>
+        <p class="btn01">
+          <a href="contact.html">
+            <span>メールでのお問い合わせ</span>
+          </a>
+        </p>
       </div>
     </div>
   </section>
 
+  <div class="page_top">
+    <a href="#top">PAGE TOP</a>
+  </div>
+
   <footer>
     <p>&copy; <span id="year"></span> 有限会社西川建設工業 | All Rights Reserved</p>
   </footer>
-
   <script>
-    // 現在の年を表示
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // URLパラメータから値を取得して表示
-    const params = new URLSearchParams(window.location.search);
-    document.getElementById('name').textContent = params.get('name');
-    document.getElementById('email').textContent = params.get('email');
-    document.getElementById('phone').textContent = params.get('phone');
-    document.getElementById('message').textContent = params.get('message');
+    // クエリパラメータを取得する関数
+    function getQueryParam(name) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(name);
+    }
 
-    // 送信ボタンの処理
-    document.getElementById('sendButton').addEventListener('click', function () {
-      alert("送信が完了しました！");
-      window.location.href = "thank_you.html"; // 完了画面に遷移
-    });
+    // ページが読み込まれたときにフォームに値をセット
+    window.onload = function () {
+      const name = getQueryParam('name');
+      const email = getQueryParam('email');
+      const phone = getQueryParam('phone');
+      const message = getQueryParam('message');
+
+      // 取得したデータを表示
+      document.getElementById('confirm-name').textContent = name;
+      document.getElementById('confirm-email').textContent = email;
+      document.getElementById('confirm-phone').textContent = phone;
+      document.getElementById('confirm-message').textContent = message;
+
+      // 入力されたデータを隠しフィールドにも設定
+      document.getElementById('confirm-name-input').value = name;
+      document.getElementById('confirm-email-input').value = email;
+      document.getElementById('confirm-phone-input').value = phone;
+      document.getElementById('confirm-message-input').value = message;
+    };
   </script>
 </body>
 </html>
