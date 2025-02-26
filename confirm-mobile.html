@@ -57,39 +57,6 @@
     <div id="response-message" style="margin-top: 20px; font-weight: bold;"></div>
   </section>
 
-  <section class="contactbutton">
-    <div class="contacBox clearfix">
-      <h2 class="mtitle-contact">
-        Contact
-        <span>お問い合わせ</span>
-      </h2>
-      <h3 class="contacTitle">
-        ご質問やご相談など
-        <br class="spbr">
-        お気軽にご相談ください。
-      </h3>
-      <div id="contacTel">
-        <p id="number">
-          TEL：0883-82-5137
-        </p>
-        <span>
-          営業時間 ／ 8:00～17:00
-          <br>
-          定休日 ／ 日曜日
-        </span>
-      </div>
-      <div id="contactWeb">
-        <img class="mailimg" src="https://raw.githubusercontent.com/nishikawakensetu/ConstructionExample/refs/heads/main/%E3%82%B7%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AA%E3%83%A1%E3%83%BC%E3%83%AB%E3%81%AE%E3%82%A2%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3%E7%B4%A0%E6%9D%90%202.png">
-        <p class="tcenter b-m5 color01 bold">お問い合わせフォームはこちら</p>
-        <p class="btn01">
-          <a href="contact.html">
-            <span>メールでのお問い合わせ</span>
-          </a>
-        </p>
-      </div>
-    </div>
-  </section>
-
   <div class="page_top">
     <a href="#top">PAGE TOP</a>
   </div>
@@ -97,41 +64,30 @@
   <footer>
     <p>&copy; <span id="year"></span> 有限会社西川建設工業 | All Rights Reserved</p>
   </footer>
+  
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // クエリパラメータを取得する関数
-    function getQueryParam(name) {
-      const urlParams = new URLSearchParams(window.location.search);
-      return urlParams.get(name);
-    }
+    // ページが読み込まれたときにローカルストレージのデータを読み込む
+    window.onload = function () {
+      const name = localStorage.getItem('name');
+      const email = localStorage.getItem('email');
+      const phone = localStorage.getItem('phone');
+      const message = localStorage.getItem('message');
 
-    // ページが読み込まれたときにフォームに値をセット
-  window.onload = function () {
-  // クエリパラメータを取得する関数
-  function getQueryParam(name) {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(name);
-  }
+      // 取得したデータを表示
+      document.getElementById('confirm-name').textContent = name;
+      document.getElementById('confirm-email').textContent = email;
+      document.getElementById('confirm-phone').textContent = phone;
+      document.getElementById('confirm-message').textContent = message;
 
-  // クエリパラメータを取得して表示
-  const name = getQueryParam('name');
-  const email = getQueryParam('email');
-  const phone = getQueryParam('phone');
-  const message = getQueryParam('message');
-
-  document.getElementById('confirm-name').textContent = name;
-  document.getElementById('confirm-email').textContent = email;
-  document.getElementById('confirm-phone').textContent = phone;
-  document.getElementById('confirm-message').textContent = message;
-
-  // 隠しフィールドにも設定
-  document.getElementById('confirm-name-input').value = name;
-  document.getElementById('confirm-email-input').value = email;
-  document.getElementById('confirm-phone-input').value = phone;
-  document.getElementById('confirm-message-input').value = message;
-};
-
+      // 隠しフィールドに設定
+      document.getElementById('confirm-name-input').value = name;
+      document.getElementById('confirm-email-input').value = email;
+      document.getElementById('confirm-phone-input').value = phone;
+      document.getElementById('confirm-message-input').value = message;
+    };
   </script>
+
 </body>
 </html>
