@@ -107,24 +107,31 @@
     }
 
     // ページが読み込まれたときにフォームに値をセット
-    window.onload = function () {
-      const name = getQueryParam('name');
-      const email = getQueryParam('email');
-      const phone = getQueryParam('phone');
-      const message = getQueryParam('message');
+  window.onload = function () {
+  // クエリパラメータを取得する関数
+  function getQueryParam(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+  }
 
-      // 取得したデータを表示
-      document.getElementById('confirm-name').textContent = name;
-      document.getElementById('confirm-email').textContent = email;
-      document.getElementById('confirm-phone').textContent = phone;
-      document.getElementById('confirm-message').textContent = message;
+  // クエリパラメータを取得して表示
+  const name = getQueryParam('name');
+  const email = getQueryParam('email');
+  const phone = getQueryParam('phone');
+  const message = getQueryParam('message');
 
-      // 入力されたデータを隠しフィールドにも設定
-      document.getElementById('confirm-name-input').value = name;
-      document.getElementById('confirm-email-input').value = email;
-      document.getElementById('confirm-phone-input').value = phone;
-      document.getElementById('confirm-message-input').value = message;
-    };
+  document.getElementById('confirm-name').textContent = name;
+  document.getElementById('confirm-email').textContent = email;
+  document.getElementById('confirm-phone').textContent = phone;
+  document.getElementById('confirm-message').textContent = message;
+
+  // 隠しフィールドにも設定
+  document.getElementById('confirm-name-input').value = name;
+  document.getElementById('confirm-email-input').value = email;
+  document.getElementById('confirm-phone-input').value = phone;
+  document.getElementById('confirm-message-input').value = message;
+};
+
   </script>
 </body>
 </html>
