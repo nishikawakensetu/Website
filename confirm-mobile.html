@@ -12,7 +12,7 @@
 
   <!-- ヘッダー -->
   <nav class="navbar" style="border-top: 5px solid #000000;">
-    <div class="logo"><a href="index-mobile.html" style="text-decoration: none; padding-left: 0px;">有限会社西川建設工業</a></div>
+    <div class="logo"><a href="index-mobile.html" style="text-decoration: none;">有限会社西川建設工業</a></div>
     <div class="menu-toggle" id="menuToggle">
       <span class="bar"></span>
       <span class="bar"></span>
@@ -58,16 +58,16 @@
     // 現在の年を表示
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // ローカルストレージから値を取得して表示
-    document.getElementById('name').textContent = localStorage.getItem('name');
-    document.getElementById('email').textContent = localStorage.getItem('email');
-    document.getElementById('phone').textContent = localStorage.getItem('phone');
-    document.getElementById('message').textContent = localStorage.getItem('message');
+    // URLパラメータから値を取得して表示
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById('name').textContent = params.get('name');
+    document.getElementById('email').textContent = params.get('email');
+    document.getElementById('phone').textContent = params.get('phone');
+    document.getElementById('message').textContent = params.get('message');
 
     // 送信ボタンの処理
     document.getElementById('sendButton').addEventListener('click', function () {
       alert("送信が完了しました！");
-      localStorage.clear(); // フォームデータを削除
       window.location.href = "thank_you.html"; // 完了画面に遷移
     });
   </script>
