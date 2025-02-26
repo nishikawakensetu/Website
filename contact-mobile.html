@@ -26,23 +26,20 @@
       <li><a href="contact-mobile.html">お問い合わせ</a></li>
     </ul>
   </nav>
+  
+  <script src="js/script.js"></script>
 
   <!-- お問い合わせヘッダーセクション -->
   <section>
     <div class="page_title_contact">
-      <h2>
-        お問い合わせ<br>
-        <span>Contact</span>
-      </h2>
+      <h2>お問い合わせ<br><span>Contact</span></h2>
     </div>
   </section>
   
-  <!-- お問い合わせセクション -->
+  <!-- お問い合わせフォーム -->
   <section class="contact-content">
     <div class="container">
-      <h3>お問い合わせフォーム
-        <span>Contact Form</span>
-      </h3>
+      <h3>お問い合わせフォーム<span>Contact Form</span></h3>
       <p>ご質問やご相談がありましたら、以下のフォームからお気軽にお問い合わせください。</p>
       <form id="contactForm">
         <label for="name">お名前</label>
@@ -57,7 +54,6 @@
         <label for="message">お問い合わせ内容</label>
         <textarea id="message" name="message" rows="4" required></textarea>
 
-        <!-- 修正: ボタンをsubmitからbuttonに変更 -->
         <button type="button" id="confirmButton" class="cta-button">確認画面へ</button>
       </form>
     </div>
@@ -70,8 +66,7 @@
   <footer>
     <p>&copy; <span id="year"></span> 有限会社西川建設工業 | All Rights Reserved</p>
   </footer>
-  
-  <!-- JavaScript -->
+
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -80,16 +75,14 @@
       const form = document.getElementById('contactForm');
       const formData = new FormData(form);
 
-      // クエリパラメータにデータを設定して確認画面に遷移
-      const params = new URLSearchParams();
+      // ローカルストレージに保存
       formData.forEach((value, key) => {
-        params.append(key, value);
+        localStorage.setItem(key, value);
       });
 
       // 確認画面へ遷移
-      window.location.href = `confirm-mobile.html?${params.toString()}`;
+      window.location.href = "confirm-mobile.html";
     });
   </script>
-
 </body>
 </html>
