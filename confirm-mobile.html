@@ -26,13 +26,13 @@
       <li><a href="contact-mobile.html">お問い合わせ</a></li>
     </ul>
   </nav>
+
   <script src="js/script.js"></script>
-  
-  <!-- 確認画面セクション -->
+
+  <!-- 確認画面 -->
   <section>
     <div class="page_title_contact">
-      <h2>確認画面<br>
-      <span>Confirm</span></h2>
+      <h2>確認画面<br><span>Confirm</span></h2>
     </div>
   </section>
 
@@ -53,8 +53,6 @@
       <button type="submit" class="cta-button">送信する</button>
     </form>
     <a href="contact-mobile.html" class="cta-button">修正する</a>
-
-    <div id="response-message" style="margin-top: 20px; font-weight: bold;"></div>
   </section>
 
   <div class="page_top">
@@ -64,30 +62,27 @@
   <footer>
     <p>&copy; <span id="year"></span> 有限会社西川建設工業 | All Rights Reserved</p>
   </footer>
-  
+
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // ページが読み込まれたときにローカルストレージのデータを読み込む
+    // ローカルストレージからデータを取得して表示
     window.onload = function () {
       const name = localStorage.getItem('name');
       const email = localStorage.getItem('email');
       const phone = localStorage.getItem('phone');
       const message = localStorage.getItem('message');
 
-      // 取得したデータを表示
       document.getElementById('confirm-name').textContent = name;
       document.getElementById('confirm-email').textContent = email;
       document.getElementById('confirm-phone').textContent = phone;
       document.getElementById('confirm-message').textContent = message;
 
-      // 隠しフィールドに設定
       document.getElementById('confirm-name-input').value = name;
       document.getElementById('confirm-email-input').value = email;
       document.getElementById('confirm-phone-input').value = phone;
       document.getElementById('confirm-message-input').value = message;
     };
   </script>
-
 </body>
 </html>
