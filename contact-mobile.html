@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1>">
-    <title>お問い合わせ | 有限会社西川建設工業</title>
-    <link rel="stylesheet" href="css/phone.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Yomogi&display=swap" rel="stylesheet">
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>お問い合わせ | 有限会社西川建設工業</title>
+  <link rel="stylesheet" href="css/phone.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Yomogi&display=swap" rel="stylesheet">
+</head>
 <body>
-
   <!-- ヘッダー -->
   <nav class="navbar" style="border-top: 5px solid #000000;">
     <div class="logo"><a href="index-mobile.html" style="text-decoration: none; padding-left: 0px;">有限会社西川建設工業</a></div>
@@ -28,87 +27,36 @@
   </nav>
   <script src="js/script.js"></script>
 
-  <!-- お問い合わせヘッダーセクション -->
+  <!-- お問い合わせフォーム -->
   <section>
     <div class="page_title_contact">
-      <h2>
-        お問い合わせ<br>
-        <span>Contact</span>
-      </h2>
+      <h2>お問い合わせ<br>
+      <span>Contact</span></h2>
     </div>
   </section>
 
-  <section>
-    <div class="breadcrumb_box">
-      <ol class="breadcrumb">
-        <li>
-          <a href="index-mobile.html" style="margin-left: 40px;">ホーム</a>
-        </li>
-        <li>
-          お問い合わせ
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- お問い合わせセクション -->
-  <section class="contact-content">
-    <div class="container">
-      <h3>お問い合わせフォーム
-        <span>Contact Form</span>
-      </h3>
-      <p>ご質問やご相談がありましたら、以下のフォームからお気軽にお問い合わせください。</p>
-      <form action="https://formspree.io/f/xwpvvjkq" method="POST" id="contactForm">
-        <label for="name">お名前</label>
-        <input type="text" id="name" name="name" required>
-
-        <label for="email">メールアドレス</label>
-        <input type="email" id="email" name="_replyto" required>
-
-        <label for="phone">電話番号</label>
-        <input type="tel" id="phone" name="phone" placeholder="例: 090-1234-5678" required>
-
-        <label for="message">お問い合わせ内容</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
-
-        <button type="submit" class="cta-button">確認画面へ</button>
-      </form>
-    </div>
-  </section>
-
-  <section class="contactbutton">
-    <div class="contacBox clearfix">
-      <h2 class="mtitle-contact">
-        Contact
-        <span>お問い合わせ</span>
-      </h2>
-      <h3 class="contacTitle">
-        ご質問やご相談など
-        <br class="spbr">
-        お気軽にご相談ください。
-      </h3>
-      <div id="contacTel">
-        <p id="number">
-          TEL：0883-82-5137
-        </p>
-        <span>
-          営業時間 ／ 8:00～17:00
-          <br>
-          定休日 ／ 日曜日
-        </span>
+  <section class="contact-form">
+    <form id="contact-form">
+      <div>
+        <label for="name">お名前:</label>
+        <input type="text" name="name" id="name" placeholder="お名前" required>
       </div>
-      <div id="contactWeb">
-        <img class="mailimg" src="https://raw.githubusercontent.com/nishikawakensetu/ConstructionExample/refs/heads/main/%E3%82%B7%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AA%E3%83%A1%E3%83%BC%E3%83%AB%E3%81%AE%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3%E7%B4%A0%E6%9D%90%202.png">
-        <p class="tcenter b-m5 color01 bold">お問い合わせフォームはこちら</p>
-        <p class="btn01">
-          <a href="contact-mobile.html">
-            <span>メールでのお問い合わせ</span>
-          </a>
-        </p>
+      <div>
+        <label for="email">メールアドレス:</label>
+        <input type="email" name="email" id="email" placeholder="メールアドレス" required>
       </div>
-    </div>
+      <div>
+        <label for="phone">電話番号:</label>
+        <input type="tel" name="phone" id="phone" placeholder="電話番号" required>
+      </div>
+      <div>
+        <label for="message">お問い合わせ内容:</label>
+        <textarea name="message" id="message" placeholder="お問い合わせ内容" required></textarea>
+      </div>
+      <button type="button" id="to-confirm" class="cta-button">確認画面へ</button>
+    </form>
   </section>
-  
+
   <div class="page_top">
     <a href="#top">PAGE TOP</a>
   </div>
@@ -118,7 +66,7 @@
       clear: both;
       width: 100%;
     }
-  
+
     .page_top a {
       display: block;
       text-align: center;
@@ -129,18 +77,29 @@
       transition: all 0.3s ease-in-out 0s;
       text-decoration: none;
     }
-  
+
     .page_top a:hover {
       background: url(https://raw.githubusercontent.com/nishikawakensetu/Website/refs/heads/main/images/%E7%9F%A2%E5%8D%B0.png) #695ab9 center 19px no-repeat;
       background-size: 13px;
     }
   </style>
-  <footer>
-  <p>&copy; <span id="year"></span> 有限会社西川建設工業 | All Rights Reserved</p>
-</footer>
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
 
+  <footer>
+    <p>&copy; <span id="year"></span> 有限会社西川建設工業 | All Rights Reserved</p>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // 「確認画面へ」ボタンのクリックイベント
+    document.getElementById('to-confirm').addEventListener('click', function () {
+      const name = encodeURIComponent(document.getElementById('name').value);
+      const email = encodeURIComponent(document.getElementById('email').value);
+      const phone = encodeURIComponent(document.getElementById('phone').value);
+      const message = encodeURIComponent(document.getElementById('message').value);
+
+      // 確認画面に遷移
+      window.location.href = `confirm.html?name=${name}&email=${email}&phone=${phone}&message=${message}`;
+    });
+  </script>
 </body>
 </html>
