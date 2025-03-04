@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>確認画面 | 有限会社西川建設工業</title>
+  <link rel="stylesheet" href="css/phone.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Yomogi&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <nav class="navbar" style="border-top: 5px solid #000000;">
+    <div class="logo"><a href="index-mobile.html" style="text-decoration: none; padding-left: 0px;">有限会社西川建設工業</a></div>
+    <div class="menu-toggle" id="menuToggle">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index-mobile.html">ホーム</a></li>
+      <li><a href="about-mobile.html">会社案内</a></li>
+      <li><a href="Construction-mobile.html">施工事例</a></li>
+      <li><a href="recruit-mobile.html">採用情報</a></li>
+      <li><a href="contact-mobile.html">お問い合わせ</a></li>
+    </ul>
+  </nav>
+
+  <script src="js/script.js"></script>
+
+  <!-- 施工事例ヘッダーセクション -->
+  <section>
+    <div class="page_title_construction">
+      <h2>
+        型枠工事<br>
+        <span>formwork construction</span>
+      </h2>
+    </div>
+  </section>
+
+  <section>
+    <div class="breadcrumb_box">
+      <ol class="breadcrumb">
+        <li>
+          <a href="index.html" style="margin-left: 20px;">ホーム</a>
+        </li>
+        <li>
+          <a href="Construction.html">施工事例</a>
+        </li>
+        <li>
+          型枠工事
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 新設処理水槽型枠工事 -->
+  <section>
+    <div class="Construction-content">
+      <div class="container">
+        <h3>新設処理水槽型枠工事</h3>
+        <img style="width: 100%;" id="myImg" src="https://raw.githubusercontent.com/nishikawakensetu/Website/refs/heads/main/images/slide4.JPG" alt="施工後">
+      </div>
+    </div>
+  </section>  
+
+    <!-- 新設処理水槽型枠工事 -->
+    <section>
+      <div class="Construction-content">
+        <div class="container">
+          <h3>新設処理水槽型枠工事</h3>
+          <img style="width: 100%;" id="myImg" src="https://raw.githubusercontent.com/nishikawakensetu/Website/refs/heads/main/images/slide4.JPG" alt="施工後">
+        </div>
+      </div>
+    </section> 
+
+  <section class="contactbutton">
+    <div class="contacBox clearfix">
+      <h2 class="mtitle-contact">
+        Contact
+        <span>お問い合わせ</span>
+      </h2>
+      <h3 class="contacTitle">
+        ご質問やご相談など
+        <br class="spbr">
+        お気軽にご相談ください。
+      </h3>
+      <div id="contacTel">
+        <p id="number">
+          TEL：0883-82-5137
+        </p>
+        <span>
+          営業時間 ／ 8:00～17:00
+          <br>
+          定休日 ／ 日曜日
+        </span>
+      </div>
+      <div id="contactWeb">
+        <img class="mailimg" style="padding-left: 0px;" src="https://raw.githubusercontent.com/nishikawakensetu/ConstructionExample/refs/heads/main/%E3%82%B7%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AA%E3%83%A1%E3%83%BC%E3%83%AB%E3%81%AE%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3%E7%B4%A0%E6%9D%90%202.png">
+        <p class="tcenter b-m5 color01 bold">お問い合わせフォームはこちら</p>
+        <p class="btn01">
+          <a href="contact.html">
+            <span>メールでのお問い合わせ</span>
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <div class="page_top">
+    <a href="#top">PAGE TOP</a>
+  </div>
+
+  <style>
+    .page_top {
+      clear: both;
+      width: 100%;
+    }
+  
+    .page_top a {
+      display: block;
+      text-align: center;
+      color: #fff;
+      padding: 35px 0 15px 0;
+      background: url(https://raw.githubusercontent.com/nishikawakensetu/Website/refs/heads/main/images/%E7%9F%A2%E5%8D%B0.png) #483b8c center 20px no-repeat;
+      background-size: 13px;
+      transition: all 0.3s ease-in-out 0s;
+      text-decoration: none;
+    }
+  
+    .page_top a:hover {
+      background: url(https://raw.githubusercontent.com/nishikawakensetu/Website/refs/heads/main/images/%E7%9F%A2%E5%8D%B0.png) #695ab9 center 19px no-repeat;
+      background-size: 13px;
+    }
+  </style>
+  
+  <script>
+    // ページトップリンクにスムーススクロールを追加
+    document.querySelector('.page_top a').addEventListener('click', function (e) {
+      e.preventDefault(); // デフォルトの動作を無効化
+      window.scrollTo({
+        top: 0, // ページトップの位置
+        behavior: 'smooth' // スムーズスクロール
+      });
+    });
+
+    // 画像クリック時に拡大表示
+    document.getElementById('myImg').addEventListener('click', function () {
+      var overlay = document.getElementById('overlay');
+      var expandedImg = document.getElementById('expandedImg');
+      
+      // 拡大画像を表示
+      overlay.style.display = 'block';
+      expandedImg.src = this.src;
+      document.getElementById('expandedImage').style.display = 'block';
+
+      // 背景クリックで閉じる
+      overlay.addEventListener('click', function() {
+        overlay.style.display = 'none';
+        document.getElementById('expandedImage').style.display = 'none';
+      });
+    });
+  </script>
+
+  <!-- フッター -->
+  <footer>
+    <p>&copy; <span id="year"></span> 有限会社西川建設工業 | All Rights Reserved</p>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
