@@ -689,6 +689,13 @@ footer {
     color: #142b9dc1;
 }
 
+.Construction-content h3 span{
+  font-weight: normal;
+  font-size: 1.1rem;
+  margin-left: 1.2rem;
+  color: #b12986b1;
+}
+
 
 .gallery{
   padding-left: 20px;
@@ -707,10 +714,16 @@ footer {
 
 @media (max-width: 768px) { /* スマホ用のブレークポイント */
   .gallery{
-    padding-left: 0px !important;
+    display:flex !important;
+    padding-right: 0px;
   }
   .gallery li {
     width: auto; /* 必要に応じて適切な値に変更 */
+    height: 100%;
+  }
+  ul.gallery .arrow{
+    line-height: 100px !important;
+    font-size: 20px !important;
   }
 }
 
@@ -738,6 +751,13 @@ ul.gallery .arrow {
   cursor: pointer;
   transition: transform 0.3s ease-in-out, filter 0.3s ease;
   list-style-type: none;
+}
+
+@media (max-width: 768px) {
+.gallery li a img{
+  width: 100%;
+  height: 100%;
+}
 }
 
   .gallery li a img:hover {
@@ -1116,6 +1136,7 @@ ul.gallery .arrow {
   list-style: none;
   margin-left: auto 0;
 }
+
 
 .snip1445 {
   position: relative;
@@ -1525,5 +1546,87 @@ canvas {
   .page_top a {
     padding: 20px 0;
     background-size: 10px;
+  }
+}
+
+
+
+
+
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.image-section {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 40px 0px 80px 0px;
+  flex-wrap: wrap;
+}
+
+.image-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex; 
+}
+.image-list li {
+  margin: 0;
+}
+
+.image-link {
+  text-decoration: none;
+  color: white;
+  position: relative;
+}
+
+.image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.image-wrapper img {
+  width: 500px;
+  height: auto;
+  border-radius: 10px;
+  filter: brightness(0.7);
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.image-wrapper:hover img {
+  transform: scale(1.05);
+  filter: brightness(0.5);
+}
+
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  z-index: 10; /* 文字を完全に前面に出す！ */
+  pointer-events: none; /* クリックで干渉しない！ */
+}
+
+@media (max-width: 768px) {
+  .image-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 中央揃え */
+  }
+
+  .image-wrapper img {
+    width: 100%;
+  }
+
+  .image-list {
+    display: flex !important;
+    flex-direction:column !important;
   }
 }
