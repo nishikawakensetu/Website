@@ -182,33 +182,40 @@
     }
   </style>
   
-  <script>
-    // ページトップリンクにスムーススクロールを追加
-    document.querySelector('.page_top a').addEventListener('click', function (e) {
-      e.preventDefault(); // デフォルトの動作を無効化
-      window.scrollTo({
-        top: 0, // ページトップの位置
-        behavior: 'smooth' // スムーズスクロール
-      });
+<script>
+  // ページトップリンクにスムーススクロールを追加
+  document.querySelector('.page_top a').addEventListener('click', function (e) {
+    e.preventDefault(); // デフォルトの動作を無効化
+    window.scrollTo({
+      top: 0, // ページトップの位置
+      behavior: 'smooth' // スムーズスクロール
     });
+  });
 
-    // 画像クリック時に拡大表示
-    document.getElementById('myImg').addEventListener('click', function () {
-      var overlay = document.getElementById('overlay');
-      var expandedImg = document.getElementById('expandedImg');
-      
+  // 画像クリック時に拡大表示（複数対応）
+  function setupImageClickHandler(imgId) {
+    const img = document.getElementById(imgId);
+    img.addEventListener('click', function () {
+      const overlay = document.getElementById('overlay');
+      const expandedImg = document.getElementById('expandedImg');
+
       // 拡大画像を表示
       overlay.style.display = 'block';
       expandedImg.src = this.src;
       document.getElementById('expandedImage').style.display = 'block';
 
       // 背景クリックで閉じる
-      overlay.addEventListener('click', function() {
+      overlay.addEventListener('click', function () {
         overlay.style.display = 'none';
         document.getElementById('expandedImage').style.display = 'none';
       });
     });
-  </script>
+  }
+
+  // 各画像にクリックイベントを設定
+  setupImageClickHandler('img1');
+  setupImageClickHandler('img2');
+</script>
 
   <!-- フッター -->
   <footer>
