@@ -720,7 +720,9 @@ footer {
   .gallery li {
     width: auto; /* 必要に応じて適切な値に変更 */
     height: 100%;
+    overflow: hidden;
   }
+
   ul.gallery .arrow{
     line-height: 100px !important;
     font-size: 20px !important;
@@ -1668,9 +1670,8 @@ body {
 
 /* 建築工事 */
 .page_title_kensetu{
-  background: url(https://github.com/nishikawakensetu/Website/blob/main/images/DJI_0400.JPG) no-repeat center;
+  background: url(https://github.com/nishikawakensetu/Website/blob/main/images/DJI_0400.JPG?raw=true) no-repeat center;
   height: 300px;
-  background-position: center -580px;
   background-size: cover;
   padding: 10px 0;
 }
@@ -1695,3 +1696,4 @@ body {
 .page_title_kensetu h2 span{
   font-size: 2rem;
 }
+
