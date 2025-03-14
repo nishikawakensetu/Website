@@ -696,7 +696,45 @@ footer {
   color: #b12986b1;
 }
 
+/* 建設 */
+.kensetsugallery{
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 0px;
+}
 
+.kensetsugallery li{
+  box-sizing: content-box;
+  margin: 0 15px 20px 0;
+  list-style-type: none;
+}
+
+.kensetsugallery li a {
+  text-align: center;
+  padding: 0px;
+}
+
+.kensetsugallery li a img {
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease;
+  list-style-type: none;
+}
+
+@media (max-width: 768px) { /* スマホ用のブレークポイント */
+  .kensetsugallery{
+    display:flex !important;
+    padding-right: 0px;
+  }
+  .kensetsugallery li {
+    width: auto; /* 必要に応じて適切な値に変更 */
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
+
+/* 土木 */
 .gallery{
   padding-left: 20px;
   padding-right: 20px;
@@ -714,7 +752,6 @@ footer {
 
 @media (max-width: 768px) { /* スマホ用のブレークポイント */
   .gallery{
-    display:flex !important;
     padding-right: 0px;
   }
   .gallery li {
@@ -722,10 +759,9 @@ footer {
     height: 100%;
     overflow: hidden;
   }
-
-  ul.gallery .arrow{
-    line-height: 100px !important;
-    font-size: 20px !important;
+  .kensetsugallery li a img{
+    width: 100%;
+    height: 100%;
   }
 }
 
