@@ -16,6 +16,9 @@
   <title>建築工事 | 有限会社西川建設工業</title>
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Yomogi&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript"></script>
   <style>
     img {
   display: block;   /* 画像をブロック要素に */
@@ -101,7 +104,14 @@
   <div class="Construction-content" style="padding-bottom: 60px">
     <div class="container">
       <h3>新設処理水槽型枠工事</h3>
-      <img style="height: 500px; cursor: pointer;" id="img1" src="https://raw.githubusercontent.com/nishikawakensetu/Website/refs/heads/main/images/slide4.JPG" alt="施工後">
+
+      <ul class="kensetsugallery">
+        <li style="text-align: center;">
+          <a href="https://raw.githubusercontent.com/nishikawakensetu/Website/refs/heads/main/images/slide4.JPG"  data-lightbox="box1" data-title="新設処理水槽型枠工事" class="popup-trigger">
+            <img style="height: 500px; cursor: pointer;" src="https://raw.githubusercontent.com/nishikawakensetu/Website/refs/heads/main/images/slide4.JPG" alt="完成">
+          </a>
+        </li>
+        </ul>
     </div>
   </div>
 </section>  
@@ -111,7 +121,13 @@
   <div class="Construction-content" style="padding-bottom: 60px">
     <div class="container">
       <h3>三野地区保育施設</h3>
-      <img style="height: 500px; cursor: pointer;" id="img2" src="https://github.com/nishikawakensetu/Website/blob/main/images/DJI_0400.JPG?raw=true" alt="施工後">
+      <ul class="kensetsugallery">
+        <li style="text-align: center;">
+          <a href="https://github.com/nishikawakensetu/Website/blob/main/images/DJI_0400.JPG?raw=true"  data-lightbox="box1" data-title="三野地区保育施設" class="popup-trigger">
+            <img style="height: 500px; cursor: pointer;" src="https://github.com/nishikawakensetu/Website/blob/main/images/DJI_0400.JPG?raw=true" alt="完成">
+          </a>
+        </li>
+        </ul>
     </div>
   </div>
 </section>  
@@ -181,41 +197,6 @@
       background-size: 13px;
     }
   </style>
-  
-<script>
-  // ページトップリンクにスムーススクロールを追加
-  document.querySelector('.page_top a').addEventListener('click', function (e) {
-    e.preventDefault(); // デフォルトの動作を無効化
-    window.scrollTo({
-      top: 0, // ページトップの位置
-      behavior: 'smooth' // スムーズスクロール
-    });
-  });
-
-  // 画像クリック時に拡大表示（複数対応）
-  function setupImageClickHandler(imgId) {
-    const img = document.getElementById(imgId);
-    img.addEventListener('click', function () {
-      const overlay = document.getElementById('overlay');
-      const expandedImg = document.getElementById('expandedImg');
-
-      // 拡大画像を表示
-      overlay.style.display = 'block';
-      expandedImg.src = this.src;
-      document.getElementById('expandedImage').style.display = 'block';
-
-      // 背景クリックで閉じる
-      overlay.addEventListener('click', function () {
-        overlay.style.display = 'none';
-        document.getElementById('expandedImage').style.display = 'none';
-      });
-    });
-  }
-
-  // 各画像にクリックイベントを設定
-  setupImageClickHandler('img1');
-  setupImageClickHandler('img2');
-</script>
 
   <!-- フッター -->
   <footer>
