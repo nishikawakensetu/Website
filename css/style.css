@@ -755,7 +755,6 @@ footer {
     padding-right: 0px;
   }
   .gallery li {
-    width: auto; /* 必要に応じて適切な値に変更 */
     height: 100%;
     overflow: hidden;
   }
@@ -770,6 +769,12 @@ ul.gallery .arrow {
   font-size: 40px;
   line-height: 230px;
   text-align: center;
+}
+
+@media (max-width: 768px) {
+  ul.gallery .arrow {
+    line-height: 90px;
+  }
 }
 
 .gallery li a {
@@ -1732,4 +1737,3 @@ body {
 .page_title_kensetu h2 span{
   font-size: 2rem;
 }
-
