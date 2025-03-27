@@ -769,7 +769,7 @@
     }
   
     .b-color-m20 {
-      width: 100% !important; /* 幅を90%に変更 */
+      width: auto !important; /* 幅を90%に変更 */
       padding: 10px !important; /* スマホ用にパディング調整 */
       border: 2px solid #a1a1a16d !important; /* スマホ用にボーダー調整 */
     }
