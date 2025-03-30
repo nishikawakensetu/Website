@@ -1618,7 +1618,7 @@ body {
   display: flex; 
 }
 .image-list li {
-  margin: 0;
+  margin: 30px;
 }
 
 .image-link {
