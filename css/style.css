@@ -113,6 +113,15 @@ header .container {
   font-size: .8rem;
 }
 
+.breadcrumb_box .breadcrumb li a {
+  color: #483b8c;
+  text-decoration: none
+}
+
+.breadcrumb_box .breadcrumb li a:hover {
+  color: #b7e3fc; /* 訪問済みでも親要素の色を維持 */
+}
+
 .breadcrumb_box .breadcrumb li+li:before {
   margin: 0 10px;
   content: ">";
