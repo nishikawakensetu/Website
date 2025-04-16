@@ -952,7 +952,7 @@ ul.gallery .arrow {
 
 .img-04 { 
   z-index: 2;
-  background-image: url('https://github.com/nishikawakensetu/Website/blob/main/images/slide4.JPG?raw=true');
+  background-image: url('https://raw.githubusercontent.com/nishikawakensetu/Website/refs/heads/main/images/IMG_7882.jpeg');
   background-position: center -450px;
   animation: slide-animation-04 24s infinite;
 }
