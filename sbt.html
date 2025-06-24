@@ -65,9 +65,9 @@
   <section class="sbt-content">
     <div class="container">
       <div class="sbti">
-        <p>当社はCO2排出量算定・削減支援クラウドサービス「あわぎんSustana」を利用して、CO2排出量の可視化を行っています
+        <p>「あわぎんSustana」は、阿波銀行が提供するCO₂排出量算定・削減支援クラウドサービスです。
           <br>
-          当社はCO₂排出量の可視化を通じて、環境問題への取り組みや地域社会への貢献を支援し、企業活動と地球環境保全の両立を目指しています。
+          当社はCO₂排出量の貸かを通じて、環境問題への取り組みや地域社会への貢献を支援し、企業活動と地球環境保全の両立を目指しています。
       </div>
     </div>
   </section>
@@ -138,14 +138,14 @@
                   datasets: [
                       {
                           label: 'スコープ1',
-                          data: [0, 0, 2.577, 3.304, 3.63, 6.269, 4.484, 3.742, 4.396, 3.869, 2.797, 0],
+                          data: [0, 0, 2.577, 3.304, 3.63, 6.269, 4.484, 3.742, 4.396, 3.869, 2.797, 4.39],
                           backgroundColor: 'darkgreen',
                           stack: 'stack1',
                           order: 1, // スコープ1を上に
                       },
                       {
                           label: 'スコープ2',
-                          data: [0, 0, 0.459, 0.682, 0.899, 0.792, 0.423, 0.337, 0.418, 0.541, 0.379, 0],
+                          data: [0, 0, 0.459, 0.682, 0.899, 0.792, 0.423, 0.337, 0.418, 0.541, 0.379, 0.406],
                           backgroundColor: 'limegreen',
                           stack: 'stack1',
                           order: 0, // スコープ2を下に
@@ -209,7 +209,88 @@
           
                </script>
       </canvas>
-            <p style="text-align: center; font-size: 16px; text-align: center;">2024年度</p>
+  <h4 style="text-align: center;">2024年度</h4>
+  <canvas id="stackedBarChart2" width="600" height="400"></canvas>
+<script>
+const ctx2 = document.getElementById('stackedBarChart2').getContext('2d');
+const stackedBarChart2 = new Chart(ctx2, {
+    type: 'bar',
+    data: {
+        labels: ['4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月', '1月', '2月', '3月'],
+        datasets: [
+            {
+                label: 'スコープ1',
+                data: [2.251, 2.512, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                backgroundColor: 'darkgreen',
+                stack: 'stack1',
+                order: 1,
+            },
+            {
+                label: 'スコープ2',
+                data: [0.385, 0.378, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                backgroundColor: 'limegreen',
+                stack: 'stack1',
+                order: 0,
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+                reverse: true,
+            },
+            tooltip: {
+                mode: 'index',
+                callbacks: {
+                    title: (tooltipItems) => {
+                        const index = tooltipItems[0].dataIndex;
+                        const year = index < 9 ? '2024年' : '2025年';
+                        const month = tooltipItems[0].label;
+                        return `${year} ${month}`;
+                    },
+                    beforeBody: (tooltipItems) => {
+                        const datasets = tooltipItems[0].chart.data.datasets;
+                        const index = tooltipItems[0].dataIndex;
+                        const total = datasets.reduce((sum, dataset) => sum + dataset.data[index], 0);
+                        return `合計: ${total.toFixed(2)} t-CO2`;
+                    },
+                    label: (tooltipItem) => {
+                        const datasets = tooltipItem.chart.data.datasets;
+                        const index = tooltipItem.dataIndex;
+
+                        const orderedDatasets = [datasets[1], datasets[0]];
+                        const dataset = orderedDatasets[tooltipItem.datasetIndex];
+                        const total = orderedDatasets.reduce((sum, ds) => sum + ds.data[index], 0);
+                        const value = dataset.data[index];
+                        const percentage = ((value / total) * 100).toFixed(2);
+
+                        return `${dataset.label}: ${value.toFixed(2)} t-CO2 (${percentage}%)`;
+                    },
+                },
+                displayColors: false,
+            },
+        },
+        scales: {
+            x: {
+                stacked: true,
+            },
+            y: {
+                stacked: true,
+                title: {
+                    display: true,
+                    text: '(t-CO2)',
+                },
+                max: 8, // 横軸の最大値を8に設定
+            },
+        },
+    },
+});
+</script>
+      </canvas>
+  <h4 style="text-align: center;">2025年度</h4>
+
       <div class="scope">
       <h2>スコープ1・2について</h2>
       <p><strong>スコープ1:</strong> 
