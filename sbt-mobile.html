@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1>">
-    <title>脱炭素社会への取り組み | 有限会社西川建設工業</title>
+    <title>環境への取り組み | 有限会社西川建設工業</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="css/phone.css">
     <link rel="stylesheet" href="css/style.css">
@@ -46,7 +46,7 @@
     <div class="breadcrumb_box">
       <ol class="breadcrumb">
         <li>
-          <a href="index.html" style="margin-left: 20px;">ホーム</a>
+          <a href="index.html">ホーム</a>
         </li>
         <li>
           環境への取り組み
@@ -58,9 +58,9 @@
 <section class="sbt-content">
   <div class="container">
     <div class="sbti">
-      <p>当社はCO2排出量算定・削減支援クラウドサービス「あわぎんSustana」を利用して、CO2排出量の可視化を行っています
+      <p>「あわぎんSustana」は、阿波銀行が提供するCO₂排出量算定・削減支援クラウドサービスです。
         <br>
-        当社はCO₂排出量の可視化を通じて、環境問題への取り組みや地域社会への貢献を支援し、企業活動と地球環境保全の両立を目指しています。
+        当社はCO₂排出量の貸かを通じて、環境問題への取り組みや地域社会への貢献を支援し、企業活動と地球環境保全の両立を目指しています。
     </div>
   </div>
 </section>
@@ -120,89 +120,170 @@
       <p>地域社会の発展なくして私たちの事業の成長はあり得ません。直接的な地域活動は行っていないものの、環境に配慮した事業活動を通じて、間接的に地域の未来に貢献していきます。</p>
     </div>
   </div>
-  <section>
-    <canvas id="stackedBarChart" width="600" height="400">
-      <script>
-        const ctx = document.getElementById('stackedBarChart').getContext('2d');
-        const stackedBarChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月', '1月', '2月', '3月'],
-                datasets: [
-                    {
-                        label: 'スコープ1',
-                        data: [0, 0, 2.577, 3.304, 3.63, 6.269, 4.484, 3.742, 4.396, 3.869, 2.797, 0],
-                        backgroundColor: 'darkgreen',
-                        stack: 'stack1',
-                        order: 1, // スコープ1を上に
-                    },
-                    {
-                        label: 'スコープ2',
-                        data: [0, 0, 0.459, 0.682, 0.899, 0.792, 0.423, 0.337, 0.418, 0.541, 0.379, 0],
-                        backgroundColor: 'limegreen',
-                        stack: 'stack1',
-                        order: 0, // スコープ2を下に
-                    }
-                ]
+    <section>
+      <canvas id="stackedBarChart" width="600" height="400">
+        <script>
+          const ctx = document.getElementById('stackedBarChart').getContext('2d');
+          const stackedBarChart = new Chart(ctx, {
+              type: 'bar',
+              data: {
+                  labels: ['4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月', '1月', '2月', '3月'],
+                  datasets: [
+                      {
+                          label: 'スコープ1',
+                          data: [0, 0, 2.577, 3.304, 3.63, 6.269, 4.484, 3.742, 4.396, 3.869, 2.797, 4.39],
+                          backgroundColor: 'darkgreen',
+                          stack: 'stack1',
+                          order: 1, // スコープ1を上に
+                      },
+                      {
+                          label: 'スコープ2',
+                          data: [0, 0, 0.459, 0.682, 0.899, 0.792, 0.423, 0.337, 0.418, 0.541, 0.379, 0.406],
+                          backgroundColor: 'limegreen',
+                          stack: 'stack1',
+                          order: 0, // スコープ2を下に
+                      }
+                  ]
+              },
+              options: {
+                  responsive: true,
+                  plugins: {
+                      legend: {
+                          position: 'top',
+                          reverse: true, // 凡例順番をスコープ1 → スコープ2に変更
+                      },
+                      tooltip: {
+                          mode: 'index',
+                          callbacks: {
+                              title: (tooltipItems) => {
+                                  const index = tooltipItems[0].dataIndex;
+                                  const year = index < 9 ? '2024年' : '2025年';
+                                  const month = tooltipItems[0].label;
+                                  return `${year} ${month}`;
+                              },
+                              beforeBody: (tooltipItems) => {
+                                  const datasets = tooltipItems[0].chart.data.datasets;
+                                  const index = tooltipItems[0].dataIndex;
+                                  const total = datasets.reduce((sum, dataset) => sum + dataset.data[index], 0);
+                                  return `合計: ${total.toFixed(2)} t-CO2`;
+                              },
+                              label: (tooltipItem) => {
+                                  const datasets = tooltipItem.chart.data.datasets;
+                                  const index = tooltipItem.dataIndex;
+          
+                                  // ツールチップの順番を強制的にスコープ1 → スコープ2に指定
+                                  const orderedDatasets = [datasets[1], datasets[0]];  // スコープ1 → スコープ2
+                                  
+                                  const dataset = orderedDatasets[tooltipItem.datasetIndex];
+                                  const total = orderedDatasets.reduce((sum, ds) => sum + ds.data[index], 0);
+                                  const value = dataset.data[index];
+                                  const percentage = ((value / total) * 100).toFixed(2);
+          
+                                  return `${dataset.label}: ${value.toFixed(2)} t-CO2 (${percentage}%)`;
+                              },
+                          },
+                          displayColors: false, // 色付きの小さいボックスを表示しない
+                      },
+                  },
+                  scales: {
+                      x: {
+                          stacked: true,
+                      },
+                      y: {
+                          stacked: true,
+                          title: {
+                              display: true,
+                              text: '(t-CO2)',
+                          },
+                      },
+                  },
+              },
+          });
+          
+               </script>
+      </canvas>
+  <h4 style="text-align: center;">2024年度</h4>
+  <canvas id="stackedBarChart2" width="600" height="400"></canvas>
+<script>
+const ctx2 = document.getElementById('stackedBarChart2').getContext('2d');
+const stackedBarChart2 = new Chart(ctx2, {
+    type: 'bar',
+    data: {
+        labels: ['4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月', '1月', '2月', '3月'],
+        datasets: [
+            {
+                label: 'スコープ1',
+                data: [2.251, 2.512, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                backgroundColor: 'darkgreen',
+                stack: 'stack1',
+                order: 1,
             },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'top',
-                        reverse: true, // 凡例順番をスコープ1 → スコープ2に変更
+            {
+                label: 'スコープ2',
+                data: [0.385, 0.378, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                backgroundColor: 'limegreen',
+                stack: 'stack1',
+                order: 0,
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+                reverse: true,
+            },
+            tooltip: {
+                mode: 'index',
+                callbacks: {
+                    title: (tooltipItems) => {
+                        const index = tooltipItems[0].dataIndex;
+                        const year = index < 9 ? '2024年' : '2025年';
+                        const month = tooltipItems[0].label;
+                        return `${year} ${month}`;
                     },
-                    tooltip: {
-                        mode: 'index',
-                        callbacks: {
-                            title: (tooltipItems) => {
-                                const index = tooltipItems[0].dataIndex;
-                                const year = index < 9 ? '2024年' : '2025年';
-                                const month = tooltipItems[0].label;
-                                return `${year} ${month}`;
-                            },
-                            beforeBody: (tooltipItems) => {
-                                const datasets = tooltipItems[0].chart.data.datasets;
-                                const index = tooltipItems[0].dataIndex;
-                                const total = datasets.reduce((sum, dataset) => sum + dataset.data[index], 0);
-                                return `合計: ${total.toFixed(2)} t-CO2`;
-                            },
-                            label: (tooltipItem) => {
-                                const datasets = tooltipItem.chart.data.datasets;
-                                const index = tooltipItem.dataIndex;
-        
-                                // ツールチップの順番を強制的にスコープ1 → スコープ2に指定
-                                const orderedDatasets = [datasets[1], datasets[0]];  // スコープ1 → スコープ2
-                                
-                                const dataset = orderedDatasets[tooltipItem.datasetIndex];
-                                const total = orderedDatasets.reduce((sum, ds) => sum + ds.data[index], 0);
-                                const value = dataset.data[index];
-                                const percentage = ((value / total) * 100).toFixed(2);
-        
-                                return `${dataset.label}: ${value.toFixed(2)} t-CO2 (${percentage}%)`;
-                            },
-                        },
-                        displayColors: false, // 色付きの小さいボックスを表示しない
+                    beforeBody: (tooltipItems) => {
+                        const datasets = tooltipItems[0].chart.data.datasets;
+                        const index = tooltipItems[0].dataIndex;
+                        const total = datasets.reduce((sum, dataset) => sum + dataset.data[index], 0);
+                        return `合計: ${total.toFixed(2)} t-CO2`;
+                    },
+                    label: (tooltipItem) => {
+                        const datasets = tooltipItem.chart.data.datasets;
+                        const index = tooltipItem.dataIndex;
+
+                        const orderedDatasets = [datasets[1], datasets[0]];
+                        const dataset = orderedDatasets[tooltipItem.datasetIndex];
+                        const total = orderedDatasets.reduce((sum, ds) => sum + ds.data[index], 0);
+                        const value = dataset.data[index];
+                        const percentage = ((value / total) * 100).toFixed(2);
+
+                        return `${dataset.label}: ${value.toFixed(2)} t-CO2 (${percentage}%)`;
                     },
                 },
-                scales: {
-                    x: {
-                        stacked: true,
-                    },
-                    y: {
-                        stacked: true,
-                        title: {
-                            display: true,
-                            text: '(t-CO2)',
-                        },
-                    },
-                },
+                displayColors: false,
             },
-        });
-        
-             </script>
-    </canvas>
-        <p style="text-align: center; font-size: 16px; text-align: center;">2024年度</p>
+        },
+        scales: {
+            x: {
+                stacked: true,
+            },
+            y: {
+                stacked: true,
+                title: {
+                    display: true,
+                    text: '(t-CO2)',
+                },
+                max: 8, // 横軸の最大値を8に設定
+            },
+        },
+    },
+});
+</script>
+      </canvas>
+  <h4 style="text-align: center;">2025年度</h4>
+
     <div class="scope">
     <h2>スコープ1・2について</h2>
     <p><strong>スコープ1:</strong> 
@@ -218,6 +299,19 @@
 
 
 
+<section class="sbt-content" style="padding: 20px 20px 60px 20px;">
+  <div class="container">
+    <h3>今後の目標
+      <span></span>
+    </h3>
+    <div class="sbti">
+      <p>当社は、脱炭素社会実現に向けた取り組みをさらに進め、エネルギー効率の向上や資源の有効活用を推進していきます。現実的かつ持続可能な改善を目指し、環境負荷を軽減するための技術革新を積極的に導入していきます。<br>
+        また、環境配慮型の新たな手法を取り入れることで、事業活動全体の効率化を図り、地球環境と地域社会との調和を重視した企業活動を展開してまいります。企業としての責任を果たし、次世代へつながる持続可能な未来の構築に貢献します。</p>
+    </div>
+  </div>
+</section>
+
+
   <section class="sbt-content" style="padding: 20px 20px 60px 20px;">
     <div class="container">
       <h3>今後の目標
@@ -228,9 +322,6 @@
           また、環境配慮型の新たな手法を取り入れることで、事業活動全体の効率化を図り、地球環境と地域社会との調和を重視した企業活動を展開してまいります。企業としての責任を果たし、次世代へつながる持続可能な未来の構築に貢献します。</p>
       </div>
     </div>
-
-
-
   </section>
   
 <section class="contactbutton">
